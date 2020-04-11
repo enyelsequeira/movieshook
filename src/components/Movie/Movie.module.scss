@@ -1,0 +1,12 @@
+.paper {
+    height: 900px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
