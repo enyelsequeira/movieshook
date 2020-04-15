@@ -1,0 +1,16 @@
+.container{
+    border: 2px solid blue;
+    width: 20%;
+    min-width: 200px;
+    height: 100%;
+}
+
+.image{
+    border-radius: 50px;
+}
+
+.genre{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

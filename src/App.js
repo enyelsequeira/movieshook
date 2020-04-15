@@ -1,26 +1,6 @@
 import React from 'react';
-import Movies from './components/Movies/Movies';
-import { fetchMovies } from './api/index';
+import { Main } from './components';
 
-class App extends React.Component {
-    state = {
-      movies: [],
-    }
+const App = () => <Main />;
 
-    async componentDidMount() {
-      const fetchedMovies = await fetchMovies();
-
-      this.setState({ movies: fetchedMovies });
-    }
-
-    render() {
-      const { movies } = this.state;
-
-      return (
-        <div>
-          <Movies movies={movies} />
-        </div>
-      );
-    }
-}
 export default App;

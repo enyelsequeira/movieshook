@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    border: 2px red solid;
+    height: 100%;
+    width: 100%;
+}
+
+.subContainer{
+    width: 100%;
+}
+
+.moviesContainer{
+    display: flex;
+}
+
+.moviesSubContainer{
+    width: 80%;
+}
+
+.showsContainer {
+    width: 20%;
+    // height: 100%;
+}

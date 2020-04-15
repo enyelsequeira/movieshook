@@ -1,17 +1,20 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import { PhotoPlaceholder } from 'react-placeholder-image';
 
-import Movie from '../Movie/Movie';
 import styles from './Movies.module.scss';
 
-const Movies = ({ movies }) => (
-  <Grid container spacing={10} className={styles.container}>
-    {movies.map((movie) => (
-      <Grid item xs={12} md={3}>
-        <Movie movie={movie} />
-      </Grid>
-    ))}
-  </Grid>
+const Movies = () => (
+  <div className={styles.container}>
+    <button type="button">Left</button>
+    <div className={styles.moviesContainer}>
+      <PhotoPlaceholder className={styles.image} width={100} height={200} />
+      <PhotoPlaceholder className={styles.image} width={100} height={200} />
+      <PhotoPlaceholder className={styles.image} width={100} height={200} />
+      <PhotoPlaceholder className={styles.image} width={100} height={200} />
+      <PhotoPlaceholder className={styles.image} width={100} height={200} />
+    </div>
+    <button type="button">Right</button>
+  </div>
 );
 
 export default Movies;

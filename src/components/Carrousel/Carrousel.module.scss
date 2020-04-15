@@ -1,0 +1,13 @@
+.container{
+    border: 2px solid rgb(65, 65, 64);
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    
+   .images{
+       border: 3px solid black;
+       border-radius: 25px;
+       align-content: space-between;
+       justify-content: center;
+   }
+}
