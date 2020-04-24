@@ -2,12 +2,14 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    height: 10%;
-    border: 2px solid black;
-
-    .input{
-        padding: 0 5%;
-        margin: 1% 0;
+    align-items: center;
+    height: 5%;
+    margin: 2% 0;
+    
+    .input {
+        border: 1px solid gray;
+        padding: 0 10%;
         border-radius: 50px;
+        outline: none;
     }
 }

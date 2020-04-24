@@ -1,4 +1,12 @@
 .container{
-    height: 100%;
     background-color: red;
+    // width: 20%;
+}
+.topShows{
+    display: flex;
+    flex-direction: column,
+}
+
+a{
+    color: black;
 }

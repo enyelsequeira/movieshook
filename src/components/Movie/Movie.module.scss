@@ -1,17 +1,27 @@
 .container{
-    border: 2px solid salmon;
+    display: flex;
+    justify-content: space-between;
+    // height: 100%;
 }
 
+.images{
+    border-radius: 10%;
+}
+.infoContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-// .paper {
-//     height: 900px;
-//     display: flex;
-//     flex-direction: column;
-// }
+.paper {
+    height: 900px;
+    display: flex;
+    flex-direction: column;
+}
 
-// .cardDetails {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: space-between;
-//     height: 100%;
-// }
+.cardDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}

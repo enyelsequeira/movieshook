@@ -2,29 +2,22 @@ import React from 'react';
 import { PhotoPlaceholder } from 'react-placeholder-image';
 import styles from './Info.module.scss';
 
+const genres = ['Action', 'Adventure', 'Animation', 'Comedy', 'Crime', 'Documentary', 'Family', 'Fantasy', 'History', 'Horror', 'Musical', 'Mystery', 'Romance', 'Sic-fi', 'TV movie', 'Thriller', 'War', 'Western'];
+
 const Info = () => (
   <div className={styles.container}>
-    <div> <PhotoPlaceholder className={styles.image} width={100} height={100} /></div>
-    <div className={styles.genre}>
-      <a href="#"> Action</a>
-      <a href="#"> Adventure</a>
-      <a href="#"> Animation</a>
-      <a href="#"> Comedy</a>
-      <a href="#"> Crime</a>
-      <a href="#"> Documentary</a>
-      <a href="#"> Family</a>
-      <a href="#"> Fantasy</a>
-      <a href="#"> History</a>
-      <a href="#"> horror</a>
-      <a href="#"> Musical</a>
-      <a href="#"> Mistery</a>
-      <a href="#"> Romance</a>
-      <a href="#"> Sci-fi</a>
-      <a href="#"> Tv movie</a>
-      <a href="#"> Thriller</a>
-      <a href="#"> War</a>
-      <a href="#"> Western</a>
+    <div className={styles.userContainer}>
+      <PhotoPlaceholder className={styles.image} width={50} height={50} />
+      <div>
+        <h4>Estelle Collins</h4>
+        <h5>Montreal, QC</h5>
+      </div>
     </div>
+    <div className={styles.genreContainer}>
+      <h5 className={styles.genreHeading}>Genres</h5>
+      {genres.map((genre) => <a className={styles.genre} href="#">{genre}</a>)}
+    </div>
+    <button>Sign out</button>
   </div>
 );
 

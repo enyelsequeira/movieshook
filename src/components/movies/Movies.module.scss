@@ -1,9 +1,16 @@
 .container{
     display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .moviesContainer {
-
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow: auto;
+    height: 470px;
+    
+    .movie {
+        padding: 10px 10px;
+        
+        img {
+            border-radius: 20px;
+            height: 300px;
+        }
     }
 }

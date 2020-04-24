@@ -1,4 +1,5 @@
 import React from 'react';
+import { Grid } from '@material-ui/core';
 import { fetchMovies } from '../../api/index';
 import { Info, Search, Carrousel, Movie, Movies, Shows } from '../index';
 
@@ -11,6 +12,7 @@ class App extends React.Component {
 
     async componentDidMount() {
       const fetchedMovies = await fetchMovies();
+
       this.setState({ movies: fetchedMovies });
     }
 
@@ -18,22 +20,16 @@ class App extends React.Component {
       const { movies } = this.state;
 
       return (
-        <div className={styles.container}>
-          <Info />
-          <div className={styles.subContainer}>
+        <Grid container style={{ height: '100%' }}>
+          <Grid item xs={2} style={{ height: '100%' }}>
+            <Info />
+          </Grid>
+          <Grid item xs={10} style={{ padding: '0 3%' }}>
             <Search />
-            <Carrousel />
-            <div className={styles.moviesContainer}>
-              <div className={styles.moviesSubContainer}>
-                <Movies />
-                <Movie />
-              </div>
-              <div className={styles.showsContainer}>
-                <Shows />
-              </div>
-            </div>
-          </div>
-        </div>
+            <Carrousel movies={movies} />
+            <Movies movies={movies} />
+          </Grid>
+        </Grid>
       );
     }
 }
