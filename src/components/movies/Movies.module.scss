@@ -7,10 +7,50 @@
     
     .movie {
         padding: 10px 10px;
-        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
         img {
             border-radius: 20px;
             height: 300px;
         }
+        
+        h4 {
+            width: 200px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-top: 10px;
+            margin-bottom: 0;
+            text-align: center;
+        }
     }
 }
+
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .paper {
+        width: 60%;
+        padding: 3%;
+        display: flex;
+        justify-content: space-between;
+
+        img {
+            width: 45%;
+        }
+
+        .overview {
+            width: 45%;
+
+            h2 {
+                margin-bottom: 40px;
+            }
+        }
+    }
+
+}    
+

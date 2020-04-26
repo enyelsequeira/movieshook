@@ -5,17 +5,17 @@
     margin: 20px 0;
 
     .imageContainer {
-        background: black;
-        border-radius: 10px;
-        position: relative;
+        // background: black;
+        // border-radius: 10px;
+        // position: relative;
 
-        .text {
-            position: absolute;
-            color: white;
-            z-index: 2;
-            bottom: 0;
-            margin-left: 7%;
-        }
+        // .text {
+        //     position: absolute;
+        //     color: white;
+        //     z-index: 2;
+        //     bottom: 0;
+        //     margin-left: 7%;
+        // }
 
         img {
             border-radius: 10px;
@@ -23,7 +23,7 @@
             align-content: space-around;
             justify-content: center;
             cursor: pointer;
-            opacity: 0.7;
+            // opacity: 0.7;
         }
     }
 
