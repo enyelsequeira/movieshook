@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 // import { makeStyles } from '@material-ui/core/styles';
 import { Modal, Paper, Grid } from '@material-ui/core';
-import StarRatings from 'react-star-ratings';
+import { Movie } from '..';
 
 import styles from './Movies.module.scss';
 
@@ -24,11 +24,7 @@ const Movies = ({ movies }) => {
     <>
       <Grid container className={styles.container}>
         {movies.map((movie, i) => (
-          <Grid item xs={12} md={2} onClick={() => handleOpen(movie)} className={styles.movie} key={i}>
-            <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
-            <h4>{movie.title}</h4>
-            <StarRatings rating={movie.vote_average / 2} numberOfStars={5} starDimension="20px" starSpacing="4px" />
-          </Grid>
+          <Movie movie={movie} i={i} handleOpen={handleOpen} />
         ))}
 
         <Modal open={open} onClose={handleClose} className={styles.modal}>

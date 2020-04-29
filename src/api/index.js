@@ -1,12 +1,15 @@
-import axios from 'axios';
-
-const url = 'https://api.themoviedb.org/3/movie/popular?api_key=4e0d07555e20e0345f6bd12869b2604e&language=en-US&page=1';
+import moviesAPI from './moviesAPI';
 
 export const fetchMovies = async () => {
   try {
-    const { data: { results } } = await axios.get(url);
-
-    console.log(results);
+    const { data: { results } } = await moviesAPI.get('/movie/top_rated', {
+      params: {
+        api_key: '4e0d07555e20e0345f6bd12869b2604e',
+        language: 'en-US',
+        sort_by: 'popularity.desc',
+        page: 1,
+      },
+    });
 
     return results;
   } catch (error) {

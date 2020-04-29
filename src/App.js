@@ -97,6 +97,7 @@ function PermanentDrawerLeft(props) {
           <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={handleDrawerToggle} className={classes.menuButton}>
             <MenuIcon />
           </IconButton>
+          <Search />
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">
@@ -112,7 +113,7 @@ function PermanentDrawerLeft(props) {
         </Hidden>
       </nav>
       <main className={classes.content}>
-        <Search />
+        <div className={classes.toolbar} />
         <Categories movies={movies} />
         <Movies movies={movies} />
       </main>

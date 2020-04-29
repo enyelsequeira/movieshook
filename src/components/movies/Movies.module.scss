@@ -4,28 +4,7 @@
     justify-content: space-between;
     overflow: auto;
     height: 470px;
-    
-    .movie {
-        padding: 10px 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
 
-        img {
-            border-radius: 20px;
-            height: 300px;
-        }
-        
-        h4 {
-            width: 200px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            margin-top: 10px;
-            margin-bottom: 0;
-            text-align: center;
-        }
-    }
 }
 
 .modal {
@@ -51,6 +30,27 @@
             }
         }
     }
-
 }    
 
+
+@media only screen and (max-width: 600px) {
+    .modal {
+        width: 100%;
+        border: 2px solid green;
+    }
+
+    .paper {
+        width: 100% !important;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+            width: 100%;
+        }
+        
+        .overview {
+            width: 100% !important;
+            text-align: center;
+        }
+    }
+}
