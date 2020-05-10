@@ -10,8 +10,7 @@ const Shows = () => (
 
     <div className={styles.topShows}>
       <h2>Top Rated Shows</h2>
-      {nums.map((n) => <a href="#">{n}</a>)}
-
+      {nums.map((n) => <a href="#lorem">{n}</a>)}
     </div>
   </div>
 

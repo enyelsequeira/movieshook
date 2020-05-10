@@ -8,9 +8,9 @@ const Categories = ({ movies }) => {
   return (
     <Grid container className={styles.container}>
       {movies.filter((movie) => movie.backdrop_path).slice(2, 5).map((movie, i) => (
-        <Grid item xs={12} md={4} className={styles.imageContainer}>
+        <Grid key={i} item xs={12} md={4} className={styles.imageContainer}>
           <h1 className={styles.text}>{categories[i]}</h1>
-          <img src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} />
+          <img alt={categories[i]} src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} />
         </Grid>
       ))}
     </Grid>

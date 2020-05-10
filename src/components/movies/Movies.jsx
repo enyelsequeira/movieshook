@@ -24,12 +24,12 @@ const Movies = ({ movies }) => {
     <>
       <Grid container className={styles.container}>
         {movies.map((movie, i) => (
-          <Movie movie={movie} i={i} handleOpen={handleOpen} />
+          <Movie key={i} movie={movie} i={i} handleOpen={handleOpen} />
         ))}
 
         <Modal open={open} onClose={handleClose} className={styles.modal}>
           <Paper className={styles.paper} elevation={24}>
-            <img src={`https://image.tmdb.org/t/p/w500/${clickedMovie.poster_path}`} />
+            <img alt={clickedMovie.title} src={`https://image.tmdb.org/t/p/w500/${clickedMovie.poster_path}`} />
             <div className={styles.overview}>
               <h2>{clickedMovie.title}</h2>
               <h6>{clickedMovie.overview}</h6>

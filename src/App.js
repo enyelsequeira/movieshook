@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 
-import { AppBar, CssBaseline, Divider, IconButton, Drawer, Hidden, List, ListItem, ListItemIcon, ListItemText, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, CssBaseline, IconButton, Drawer, Hidden, Toolbar } from '@material-ui/core';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MenuIcon from '@material-ui/icons/Menu';
-import { PhotoPlaceholder } from 'react-placeholder-image';
+import { init } from './actions';
 import { fetchMovies } from './api/index';
-import { Search, Categories, Movies } from './components';
-
-import styles from './Test.module.scss';
+import { Search, Categories, Movies, Sidebar } from './components';
 
 const drawerWidth = 240;
 
@@ -45,12 +43,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function PermanentDrawerLeft(props) {
-  const { container } = props;
+function PermanentDrawerLeft({ init, container, isLoading }) {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    init();
+  }, [init]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -64,30 +65,9 @@ function PermanentDrawerLeft(props) {
 
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
-  const genres = ['Action', 'Adventure', 'Animation', 'Comedy', 'Crime', 'Documentary', 'Family', 'Fantasy', 'History', 'Horror', 'Musical', 'Mystery', 'Romance', 'Sic-fi', 'TV movie', 'Thriller', 'War', 'Western'];
-
-  const drawer = (
-    <div>
-      <div className={classes.toolbar} />
-      <div className={styles.userContainer}>
-        <PhotoPlaceholder className={styles.image} width={50} height={50} />
-        <div>
-          <h5>Estelle Collins</h5>
-          <h6>Montreal, QC</h6>
-        </div>
-      </div>
-      <Divider />
-      <List>
-        {genres.map((genre) => (
-          <ListItem button key={genre}>
-            <ListItemIcon><InboxIcon /></ListItemIcon>
-            <ListItemText primary={genre} />
-          </ListItem>
-        ))}
-      </List>
-
-    </div>
-  );
+  if (isLoading) {
+    return <h1>Loading</h1>;
+  }
 
   return (
     <div className={classes.root}>
@@ -103,12 +83,14 @@ function PermanentDrawerLeft(props) {
       <nav className={classes.drawer} aria-label="mailbox folders">
         <Hidden smUp implementation="css">
           <Drawer container={container} variant="temporary" anchor={theme.direction === 'rtl' ? 'right' : 'left'} open={mobileOpen} onClose={handleDrawerToggle} classes={{ paper: classes.drawerPaper }} ModalProps={{ keepMounted: true }}>
-            {drawer}
+            <div className={classes.toolbar} />
+            <Sidebar />
           </Drawer>
         </Hidden>
         <Hidden xsDown implementation="css">
           <Drawer classes={{ paper: classes.drawerPaper }} variant="permanent" open>
-            {drawer}
+            <div className={classes.toolbar} />
+            <Sidebar />
           </Drawer>
         </Hidden>
       </nav>
@@ -121,4 +103,9 @@ function PermanentDrawerLeft(props) {
   );
 }
 
-export default PermanentDrawerLeft;
+const mapStateToProps = ({ config }) => ({ isLoading: config.loading });
+
+export default connect(
+  mapStateToProps,
+  { init },
+)(PermanentDrawerLeft);
