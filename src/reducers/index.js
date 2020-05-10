@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import movieReducer from './movieReducer';
+import moviesReducer from './moviesReducer';
+import categoriesReducer from './fetchMoviesByData';
 import configReducer from './configReducer';
 
 export default combineReducers({
-  movie: movieReducer,
+  categoriesReducer,
+  movies: moviesReducer,
   config: configReducer,
 });

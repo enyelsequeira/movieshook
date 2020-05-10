@@ -3,8 +3,16 @@
     flex-wrap: wrap;
     justify-content: space-between;
     overflow: auto;
-    height: 470px;
+    // height: 470px;
 
+}
+
+.loadingContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal {

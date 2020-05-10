@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 
 import { AppBar, CssBaseline, IconButton, Drawer, Hidden, Toolbar } from '@material-ui/core';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -13,6 +13,7 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    height: '100%',
   },
   drawer: {
     [theme.breakpoints.up('sm')]: {
@@ -43,31 +44,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function PermanentDrawerLeft({ init, container, isLoading }) {
+function PermanentDrawerLeft({ init, container }) {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [movies, setMovies] = useState([]);
+  //   const [movies, setMovies] = useState([]);
+  const movies = useSelector((state) => state.movies.results);
+  const isLoading = useSelector((state) => state.config.isLoading);
 
   useEffect(() => {
     init();
   }, [init]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const fetchedMovies = await fetchMovies();
-
-      setMovies(fetchedMovies);
-    };
-
-    fetchData();
-  }, []);
-
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
-
-  if (isLoading) {
-    return <h1>Loading</h1>;
-  }
 
   return (
     <div className={classes.root}>
@@ -96,7 +85,7 @@ function PermanentDrawerLeft({ init, container, isLoading }) {
       </nav>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Categories movies={movies} />
+        {/* <Categories movies={movies} /> */}
         <Movies movies={movies} />
       </main>
     </div>

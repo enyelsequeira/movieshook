@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 // import { makeStyles } from '@material-ui/core/styles';
 import { Modal, Paper, Grid } from '@material-ui/core';
+import RingLoader from 'react-spinners/RingLoader';
+import { useSelector } from 'react-redux';
 import { Movie } from '..';
 
 import styles from './Movies.module.scss';
@@ -9,6 +11,7 @@ import styles from './Movies.module.scss';
 const Movies = ({ movies }) => {
   const [open, setOpen] = useState(false);
   const [clickedMovie, setClickedMovie] = useState({});
+  const isLoading = useSelector((state) => state.config.isLoading);
 
   const handleOpen = (movie) => {
     setClickedMovie(movie);
@@ -19,6 +22,14 @@ const Movies = ({ movies }) => {
     setClickedMovie({});
     setOpen(false);
   };
+
+  if (isLoading) {
+    return (
+      <div className={styles.loadingContainer}>
+        <RingLoader size={150} color="#123abc" loading={isLoading} />
+      </div>
+    );
+  }
 
   return (
     <>
@@ -40,13 +51,5 @@ const Movies = ({ movies }) => {
     </>
   );
 };
-
-// <div className={styles.container}>
-//   {movies.map((movie, i) => (
-//     <div className={styles.movie} key={i}>
-//       <img onClick={handleOpen} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
-//     </div>
-//   ))}
-// </div>
 
 export default Movies;
