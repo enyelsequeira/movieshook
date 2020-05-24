@@ -1,57 +1,71 @@
 import moviesAPI from '../api/moviesAPI';
+import { GET_GENRES, START_LOADING, END_LOADING, FETCH_MOVIES_BY_GENRE, FETCH_MOVIES_BY_CATEGORY } from '../constants/actionTypes';
 
+// Get the list of genres
 const getGenres = () => async (dispatch) => {
   const { data } = await moviesAPI.get('/genre/movie/list');
 
-  dispatch({ type: 'GET_GENRES', payload: data });
+  dispatch({ type: GET_GENRES, payload: data });
 };
 
 export const selectGenre = (genreId) => async (dispatch) => {
-  dispatch({ type: 'START_LOADING' });
+  dispatch({ type: 'SELECT_GENRE', payload: genreId });
+};
+
+export const selectCategory = (name) => async (dispatch) => {
+  dispatch({ type: 'SELECT_CATEGORY', payload: name });
+};
+
+export const fetchMoviesByGenre = (currentlySelected, page) => async (dispatch) => {
+  dispatch({ type: START_LOADING });
 
   const { data } = await moviesAPI.get('/discover/movie', {
     params: {
-      with_genres: genreId,
-      page: 1,
-      //   sort_by:
+      with_genres: currentlySelected, page,
     },
   });
 
-  dispatch({ type: 'FETCH_MOVIES_BY_GENRE', payload: data });
-
-  dispatch({ type: 'END_LOADING' });
+  dispatch({ type: FETCH_MOVIES_BY_GENRE, payload: { currentlySelected, data } });
+  dispatch({ type: END_LOADING });
 };
 
-// Select movies by categories
-export const selectCategory = (name) => async (dispatch) => {
-  dispatch({ type: 'START_LOADING' });
+export const fetchMoviesByCategory = (currentlySelected, page) => async (dispatch) => {
+  dispatch({ type: START_LOADING });
 
-  const { data } = await moviesAPI.get(`/movie/${name}`, {
-    params: {
-      category: name,
-      page: 1,
-      //   sort_by:
-    },
+  const { data } = await moviesAPI.get(`/movie/${currentlySelected}`, {
+    params: { page },
   });
 
-  dispatch({ type: 'FETCH_MOVIES_BY_CATEGORY', payload: data });
-  console.log(data);
-
-  dispatch({ type: 'END_LOADING' });
+  dispatch({ type: FETCH_MOVIES_BY_CATEGORY, payload: { currentlySelected, data } });
+  dispatch({ type: END_LOADING });
 };
 
-// select category
-// /movie/${categoryName}
+// // Select a genre and populate movies
+// export const selectGenre = (genreId, page) => async (dispatch) => {
+//   dispatch({ type: START_LOADING });
 
+//   const { data } = await moviesAPI.get('/discover/movie', {
+//     params: { with_genres: genreId, page },
+//   });
+
+//   dispatch({ type: FETCH_MOVIES_BY_GENRE, payload: { currentlySelected: genreId, data } });
+//   dispatch({ type: END_LOADING });
+// };
+
+// // Select a category and populate movies
+// export const selectCategory = (name, page) => async (dispatch) => {
+//   dispatch({ type: START_LOADING });
+
+//   const { data } = await moviesAPI.get(`/movie/${name}`, {
+//     params: { page },
+//   });
+
+//   dispatch({ type: FETCH_MOVIES_BY_CATEGORY, payload: { currentlySelected: name, data } });
+//   dispatch({ type: END_LOADING });
+// };
+
+// Initialization
 export const init = () => async (dispatch) => {
-  dispatch({ type: 'START_LOADING' });
-
-  // await dispatch(getConfig());
   await dispatch(getGenres());
-  await dispatch(selectGenre(28));
-  await dispatch(selectCategory());
-
-  console.log('test');
-
-  dispatch({ type: 'END_LOADING' });
+  await dispatch(selectCategory('popular'));
 };

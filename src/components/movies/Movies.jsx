@@ -1,17 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // import { makeStyles } from '@material-ui/core/styles';
 import { Modal, Paper, Grid } from '@material-ui/core';
 import RingLoader from 'react-spinners/RingLoader';
-import { useSelector } from 'react-redux';
-import { Movie } from '..';
+import { useSelector, useDispatch } from 'react-redux';
+import Pagination from './Pagination/Pagination';
+import Movie from './Movie/Movie';
+import { fetchMoviesByGenre, fetchMoviesByCategory } from '../../actions';
 
 import styles from './Movies.module.scss';
 
-const Movies = ({ movies }) => {
+const Movies = () => {
   const [open, setOpen] = useState(false);
+  const [page, setPage] = useState(1);
+  const dispatch = useDispatch();
   const [clickedMovie, setClickedMovie] = useState({});
+  const { data } = useSelector((state) => state.movies);
   const isLoading = useSelector((state) => state.config.isLoading);
+  const currentlySelected = useSelector((state) => state.currentlySelected);
+
+  useEffect(() => {
+    if (typeof currentlySelected === 'number') {
+      dispatch(fetchMoviesByGenre(currentlySelected, page));
+    } else {
+      dispatch(fetchMoviesByCategory(currentlySelected, page));
+    }
+  }, [page, currentlySelected]);
 
   const handleOpen = (movie) => {
     setClickedMovie(movie);
@@ -34,10 +48,6 @@ const Movies = ({ movies }) => {
   return (
     <>
       <Grid container className={styles.container}>
-        {movies.map((movie, i) => (
-          <Movie key={i} movie={movie} i={i} handleOpen={handleOpen} />
-        ))}
-
         <Modal open={open} onClose={handleClose} className={styles.modal}>
           <Paper className={styles.paper} elevation={24}>
             <img alt={clickedMovie.title} src={`https://image.tmdb.org/t/p/w500/${clickedMovie.poster_path}`} />
@@ -47,6 +57,11 @@ const Movies = ({ movies }) => {
             </div>
           </Paper>
         </Modal>
+
+        {data.results.map((movie, i) => (
+          <Movie key={i} movie={movie} i={i} handleOpen={handleOpen} />
+        ))}
+        <Pagination currentPage={page} setPage={setPage} totalPages={data.total_pages} />
       </Grid>
     </>
   );

@@ -1,16 +1,17 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Divider, List, ListItem, ListItemText, ListSubheader } from '@material-ui/core';
-import { PhotoPlaceholder } from 'react-placeholder-image';
 
-import { getMoviesGenre, selectGenre, selectCategory } from '../../actions';
-import styles from './Sidebar.module.scss';
+import { selectGenre, selectCategory } from '../../actions';
 
-const categories = ['Popular', 'Top Rated', 'Upcoming'];
+const categories = [
+  { label: 'Popular', value: 'popular' },
+  { label: 'Top Rated', value: 'top_rated' },
+  { label: 'Upcoming', value: 'upcoming' },
+];
 
 const Sidebar = () => {
   const genres = useSelector((state) => state.config.genres);
-  const categoriesId = useSelector((state) => state.config.categories);
   const dispatch = useDispatch();
 
   return (
@@ -25,10 +26,9 @@ const Sidebar = () => {
       <Divider />
       <List>
         <ListSubheader>Categories</ListSubheader>
-        {categories.map((category, i) => (
-          // add onclick and send proper category//still not working
-          <ListItem onClick={() => dispatch(selectCategory(categoriesId))} button key={i}>
-            <ListItemText primary={category} />
+        {categories.map(({ label, value }, i) => (
+          <ListItem onClick={() => dispatch(selectCategory(value, 1))} button key={i}>
+            <ListItemText primary={label} />
           </ListItem>
         ))}
       </List>
@@ -36,7 +36,7 @@ const Sidebar = () => {
       <List>
         <ListSubheader>Genres</ListSubheader>
         {genres ? genres.map(({ name, id }) => (
-          <ListItem onClick={() => dispatch(selectGenre(id))} button key={id}>
+          <ListItem onClick={() => dispatch(selectGenre(id, 1))} button key={id}>
             <ListItemText primary={name} />
           </ListItem>
         )) : null}

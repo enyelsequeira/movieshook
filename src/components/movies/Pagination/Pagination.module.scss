@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    margin: 50px 0;
+    border-radius: 0.2rem;
+    padding: 0.5rem 1rem;
+    outline: 0;
+    height: 40px;
+    background-color:rgba(0,0,0,0.8);
+    color: white;
+    border: solid;
+    border-color:rgba(0, 255, 255, 0.5);
+}
+
+.pageNumber {
+    color: white;
+    margin: 0 20px;
+    border-bottom: 2px solid white;
+}

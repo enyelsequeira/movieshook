@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import moviesReducer from './moviesReducer';
-import categoriesReducer from './fetchMoviesByData';
 import configReducer from './configReducer';
+import currentlySelectedReducer from './currentlySelectedReducer';
 
 export default combineReducers({
-  categoriesReducer,
   movies: moviesReducer,
   config: configReducer,
+  currentlySelected: currentlySelectedReducer,
 });

@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { connect, useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 
 import { AppBar, CssBaseline, IconButton, Drawer, Hidden, Toolbar } from '@material-ui/core';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import { init } from './actions';
-import { fetchMovies } from './api/index';
-import { Search, Categories, Movies, Sidebar } from './components';
+import { Search, Movies, Sidebar } from './components';
 
 const drawerWidth = 240;
 
@@ -48,9 +47,7 @@ function PermanentDrawerLeft({ init, container }) {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
-  //   const [movies, setMovies] = useState([]);
-  const movies = useSelector((state) => state.movies.results);
-  const isLoading = useSelector((state) => state.config.isLoading);
+  // const isLoading = useSelector((state) => state.config.isLoading);
 
   useEffect(() => {
     init();
@@ -86,7 +83,7 @@ function PermanentDrawerLeft({ init, container }) {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         {/* <Categories movies={movies} /> */}
-        <Movies movies={movies} />
+        <Movies />
       </main>
     </div>
   );
