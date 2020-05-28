@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Divider, List, ListItem, ListItemText, ListSubheader } from '@material-ui/core';
 
-import { selectGenre, selectCategory } from '../../actions';
+import { selectGenre, selectCategory, getGenres } from '../../actions';
 
 const categories = [
   { label: 'Popular', value: 'popular' },
@@ -13,6 +13,10 @@ const categories = [
 const Sidebar = () => {
   const genres = useSelector((state) => state.config.genres);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getGenres());
+  }, []);
 
   return (
     <>

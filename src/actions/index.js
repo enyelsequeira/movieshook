@@ -2,7 +2,7 @@ import moviesAPI from '../api/moviesAPI';
 import { GET_GENRES, START_LOADING, END_LOADING, FETCH_MOVIES_BY_GENRE, FETCH_MOVIES_BY_CATEGORY } from '../constants/actionTypes';
 
 // Get the list of genres
-const getGenres = () => async (dispatch) => {
+export const getGenres = () => async (dispatch) => {
   const { data } = await moviesAPI.get('/genre/movie/list');
 
   dispatch({ type: GET_GENRES, payload: data });
@@ -63,9 +63,3 @@ export const fetchMoviesByCategory = (currentlySelected, page) => async (dispatc
 //   dispatch({ type: FETCH_MOVIES_BY_CATEGORY, payload: { currentlySelected: name, data } });
 //   dispatch({ type: END_LOADING });
 // };
-
-// Initialization
-export const init = () => async (dispatch) => {
-  await dispatch(getGenres());
-  await dispatch(selectCategory('popular'));
-};

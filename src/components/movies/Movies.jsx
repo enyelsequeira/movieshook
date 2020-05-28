@@ -25,7 +25,7 @@ const Movies = () => {
     } else {
       dispatch(fetchMoviesByCategory(currentlySelected, page));
     }
-  }, [page, currentlySelected]);
+  }, [page, currentlySelected, dispatch]);
 
   const handleOpen = (movie) => {
     setClickedMovie(movie);
