@@ -61,8 +61,8 @@ const Movies = () => {
         {data.results.map((movie, i) => (
           <Movie key={i} movie={movie} i={i} handleOpen={handleOpen} />
         ))}
-        <Pagination currentPage={page} setPage={setPage} totalPages={data.total_pages} />
       </Grid>
+      <Pagination currentPage={page} setPage={setPage} totalPages={data.total_pages} />
     </>
   );
 };
