@@ -1,5 +1,5 @@
 import moviesAPI from '../api/moviesAPI';
-import { GET_GENRES, START_LOADING, END_LOADING, SELECT_GENRE, SELECT_CATEGORY, FETCH_MOVIES } from '../constants/actionTypes';
+import { GET_GENRES, START_LOADING, END_LOADING, SELECT_GENRE, SELECT_CATEGORY, FETCH_MOVIES, FETCH_CREDITS } from '../constants/actionTypes';
 
 export const getGenres = () => async (dispatch) => {
   const { data } = await moviesAPI.get('/genre/movie/list');
@@ -40,3 +40,31 @@ export const getMoviesSearch = (query) => async (dispatch) => {
   dispatch({ type: FETCH_MOVIES, payload: { query, data } });
   dispatch({ type: END_LOADING });
 };
+
+// cast
+
+export const getCredits = ({ id: movieId }) => async (dispatch) => {
+  // dispatch({ type: START_LOADING });
+  const { data: { cast: castData } } = await moviesAPI.get(`/movie/${movieId}/credits`);
+
+  const cast = castData.slice(0, 5);
+
+  dispatch({ type: FETCH_CREDITS, payload: cast });
+};
+
+// export const getCredits = () => async (dispatch, getState) => {
+//   const { id } = getState().movie;
+
+//   try {
+//     const res = await tmdbAPI.get(`/movie/${id}/credits`);
+//     dispatch({
+//       type: TYPES.FETCH_CAST,
+//       payload: res.data.cast,
+//     });
+//   } catch (err) {
+//     dispatch({ type: TYPES.INSERT_ERROR, payload: err.response });
+//     history.push(process.env.PUBLIC_URL + '/error');
+//   }
+// };
+
+// recommended movies

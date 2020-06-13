@@ -7,3 +7,5 @@ export const SELECT_CATEGORY = 'SELECT_CATEGORY';
 
 // Movies Action Types
 export const FETCH_MOVIES = 'FETCH_MOVIES';
+export const FETCH_CREDITS = 'FETCH_CREDITS';
+

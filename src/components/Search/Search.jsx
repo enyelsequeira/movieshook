@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { BsSearch } from 'react-icons/bs';
 import { getMoviesSearch } from '../../actions';
 
 import useStyles from './styles';
+import styles from './Search.module.scss';
 
 const Search = () => {
   const classes = useStyles();
@@ -16,16 +18,31 @@ const Search = () => {
   };
 
   return (
-    <div className={classes.searchContainer}>
+    <div className={styles.searchBox}>
       <input
-        className={classes.input}
+        className={styles.searchInput}
         type="text"
-        placeholder="Search your interests..."
+        name=""
+        placeholder="Search"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         onKeyPress={onKeyPress}
       />
+      <button className={styles.searchButton} href="#" type="button">
+        <BsSearch />
+      </button>
     </div>
+
+  // <div className={classes.searchContainer}>
+  //   <input
+  //     className={classes.input}
+  //     type="text"
+  //     placeholder="Search your interests..."
+  //     value={query}
+  //     onChange={(e) => setQuery(e.target.value)}
+  //     onKeyPress={onKeyPress}
+  //   />
+  // </div>
   );
 };
 

@@ -7,6 +7,9 @@
     img {
         border-radius: 20px;
         height: 300px;
+        &:hover{
+            cursor: pointer;
+        }
     }
     
     h4 {
@@ -17,5 +20,8 @@
         margin-top: 10px;
         margin-bottom: 0;
         text-align: center;
+        &:hover{
+            cursor: pointer;
+        }
     }
 }
