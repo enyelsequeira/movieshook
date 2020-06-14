@@ -1,9 +1,11 @@
-import { FETCH_CREDITS } from '../constants/actionTypes';
+import { FETCH_MOVIE_DETAILS } from '../constants/actionTypes';
 
-export default (state = [], action) => {
+export default (state = {}, action) => {
   switch (action.type) {
-    case FETCH_CREDITS:
+    case FETCH_MOVIE_DETAILS:
       return action.payload;
+    case 'CLEAR_MOVIE':
+      return {};
     default:
       return state;
   }

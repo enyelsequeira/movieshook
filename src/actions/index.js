@@ -1,5 +1,5 @@
 import moviesAPI from '../api/moviesAPI';
-import { GET_GENRES, START_LOADING, END_LOADING, SELECT_GENRE, SELECT_CATEGORY, FETCH_MOVIES, FETCH_CREDITS } from '../constants/actionTypes';
+import { GET_GENRES, START_LOADING, END_LOADING, SELECT_GENRE, SELECT_CATEGORY, FETCH_MOVIES, FETCH_CREDITS, FETCH_MOVIE_DETAILS } from '../constants/actionTypes';
 
 export const getGenres = () => async (dispatch) => {
   const { data } = await moviesAPI.get('/genre/movie/list');
@@ -41,16 +41,23 @@ export const getMoviesSearch = (query) => async (dispatch) => {
   dispatch({ type: END_LOADING });
 };
 
-// cast
+// Set loading to true for next render
+export const clearMovie = () => ({
+  type: 'CLEAR_MOVIE',
+});
 
-export const getCredits = ({ id: movieId }) => async (dispatch) => {
-  // dispatch({ type: START_LOADING });
-  const { data: { cast: castData } } = await moviesAPI.get(`/movie/${movieId}/credits`);
+// Get Details, Get External IDs, Get Images, Get Keywords, Get Videos, Get Recommendations, Get Similar Movies, Get Reviews
+export const getMovieDetails = ({ id }) => async (dispatch) => {
+  const { data: movieDetails } = await moviesAPI.get(`/movie/${id}`, { params: { append_to_response: 'videos' } });
+  const { data: { cast: castData } } = await moviesAPI.get(`/movie/${id}/credits`);
 
   const cast = castData.slice(0, 5);
 
-  dispatch({ type: FETCH_CREDITS, payload: cast });
+  dispatch({ type: FETCH_MOVIE_DETAILS, payload: { ...movieDetails, cast } });
 };
+
+// action is an object that has a type and a payload
+// action creator is a function that dispatches an action
 
 // export const getCredits = () => async (dispatch, getState) => {
 //   const { id } = getState().movie;
