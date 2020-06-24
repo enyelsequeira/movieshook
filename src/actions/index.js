@@ -48,14 +48,16 @@ export const clearMovie = () => ({
 
 // Get Details, Get External IDs, Get Images, Get Keywords, Get Videos, Get Recommendations, Get Similar Movies, Get Reviews
 export const getMovieDetails = ({ id }) => async (dispatch) => {
-  const { data: movieDetails } = await moviesAPI.get(`/movie/${id}`, { params: { append_to_response: 'videos' } });
-  const { data: { cast: castData } } = await moviesAPI.get(`/movie/${id}/credits`);
-
-  const cast = castData.slice(0, 5);
-
-  dispatch({ type: FETCH_MOVIE_DETAILS, payload: { ...movieDetails, cast } });
+  try {
+    dispatch({ type: 'FETCH_MOVIE_REQUEST' });
+    const { data: movieDetails } = await moviesAPI.get(`/movie/${id}`, { params: { append_to_response: 'videos' } });
+    const { data: { cast: castData } } = await moviesAPI.get(`/movie/${id}/credits`);
+    const cast = castData.slice(0, 5);
+    dispatch({ type: 'FETCH_MOVIE_SUCCESS', payload: { ...movieDetails, cast } });
+  } catch (e) {
+    dispatch({ type: 'FETCH_MOVIE_FAILURE', payload: { error: 'SOMETHING HAPPENED' } });
+  }
 };
-
 // action is an object that has a type and a payload
 // action creator is a function that dispatches an action
 

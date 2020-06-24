@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Divider, List, ListItem, ListItemText, ListSubheader } from '@material-ui/core';
-
+import { Link } from 'react-router-dom';
 import { selectGenre, selectCategory, getGenres } from '../../actions';
 
 const categories = [
@@ -20,29 +20,26 @@ const Sidebar = () => {
 
   return (
     <>
-      {/* <div className={styles.userContainer}>
-        <PhotoPlaceholder className={styles.image} width={50} height={50} />
-        <div>
-          <h5>Estelle Collins</h5>
-          <h6>Montreal, QC</h6>
-        </div>
-      </div> */}
       <Divider />
       <List>
         <ListSubheader>Categories</ListSubheader>
         {categories.map(({ label, value }, i) => (
-          <ListItem onClick={() => dispatch(selectCategory(value, 1))} button key={i}>
-            <ListItemText primary={label} />
-          </ListItem>
+          <Link to="/">
+            <ListItem onClick={() => dispatch(selectCategory(value, 1))} button key={i}>
+              <ListItemText primary={label} />
+            </ListItem>
+          </Link>
         ))}
       </List>
       <Divider />
       <List>
         <ListSubheader>Genres</ListSubheader>
         {genres ? genres.map(({ name, id }) => (
-          <ListItem onClick={() => dispatch(selectGenre(id, 1))} button key={id}>
-            <ListItemText primary={name} />
-          </ListItem>
+          <Link to="/">
+            <ListItem onClick={() => dispatch(selectGenre(id, 1))} button key={id}>
+              <ListItemText primary={name} />
+            </ListItem>
+          </Link>
         )) : null}
       </List>
     </>

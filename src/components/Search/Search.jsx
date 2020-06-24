@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { BsSearch } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 import { getMoviesSearch } from '../../actions';
 
 import useStyles from './styles';
@@ -18,6 +19,7 @@ const Search = () => {
   };
 
   return (
+
     <div className={styles.searchBox}>
       <input
         className={styles.searchInput}
@@ -28,9 +30,11 @@ const Search = () => {
         onChange={(e) => setQuery(e.target.value)}
         onKeyPress={onKeyPress}
       />
-      <button className={styles.searchButton} href="#" type="button">
-        <BsSearch />
-      </button>
+      <Link to="/">
+        <button onClick={() => dispatch(getMoviesSearch(query))} className={styles.searchButton} href="#" type="button">
+          <BsSearch />
+        </button>
+      </Link>
     </div>
 
   // <div className={classes.searchContainer}>

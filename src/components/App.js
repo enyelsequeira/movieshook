@@ -42,8 +42,14 @@ const App = ({ container }) => {
         </nav>
         <main className={classes.content}>
           <div className={classes.toolbar} />
-          {/* <Categories movies={movies} /> */}
-          <Movies />
+          <Switch>
+            <Route exact path="/movie">
+              <MovieInfo />
+            </Route>
+            <Route exact path="/">
+              <Movies />
+            </Route>
+          </Switch>
         </main>
       </div>
     </BrowserRouter>
