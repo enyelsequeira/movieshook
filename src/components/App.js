@@ -5,7 +5,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom';
 import moviesAPI from '../api/moviesAPI';
 import { Search, Movies, Sidebar } from '.';
-import MovieInfo from './MovieInformation';
+import MovieInfo from "./Movies/MovieInformation/MovieInformation";
 
 import useStyles from './AppStyles';
 
