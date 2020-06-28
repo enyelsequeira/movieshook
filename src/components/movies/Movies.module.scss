@@ -8,8 +8,6 @@
     flex-wrap: wrap;
     justify-content: space-between;
     overflow: auto;
-    // height: 470px;
-
 }
 
 .loadingContainer{
@@ -20,169 +18,19 @@
     align-items: center;
 }
 
-.modal {
+ 
+
+
+
+@media screen and (min-width: 600px) and (max-width:  960px ){
+    .container{
+        display: flex;
+    justify-content: space-around;
+}
+}
+@media screen and (min-width: 300px) and (max-width:  486px ){
+    .container{
     display: flex;
     justify-content: center;
-    overflow-y: auto;
-
-    .paper {
-        width: 60%;
-        padding: 3%;
-        display: flex;
-        justify-content: space-between;
-        border-radius: 20px;
-        box-shadow: 1px 1px 9px 3px #E94F37;
-
-
-        .posterPath {
-            width: 45%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: -7px -4px 22px -7px rgba(0,0,0,0.75);
-        }
-
-        .overview {
-            width: 45%;
-            padding: 0;
-            ul{
-                margin: 0;
-                list-style: none;
-            }
-            h2 {
-                font-family: 'Montserrat', sans-serif;
-                margin-bottom: 0px;
-                color: #171738;
-                font-weight: 300;
-                text-transform: uppercase;
-                text-shadow: 6px 4px 14px rgba(165, 154, 135, 0.63);    
-               }
-               .subtitle{
-                   margin-bottom: 10px;
-               }
-               .language{
-                   text-transform: uppercase;
-               }
-
-               .castContainer{
-                   display: flex;
-                   flex-direction: column;  
-                   
-                   .castName{
-                    text-align: center;
-                    }
-                    .cast{
-                        display: flex;
-                        justify-content: space-between;
-                        align-content: space-between;
-                        width: 100%;
-                        margin: 5px 0;
-                        padding: 0;
-                        .characternames{
-                          font-size: 10px; 
-                          text-align: center; 
-                        }
-                    }
-                    .castImages{
-                        list-style: none;
-                        margin: 0;
-    
-                        .castImage {
-                            width: 50px;
-                            height: 50px;
-                            object-fit: cover;
-                            background-color: transparent;
-                            border-radius: 50%;
-                            transition: all 100ms cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-                            }
-                    }
-                                  
-               } 
-
-               .buttons{
-                   display: flex;
-                   justify-content: center;
-                   margin-top: 10px;
-
-                .button{
-                    display: flex;
-                    border: .5px solid;
-                    align-items: center;
-                    padding: 4px 20px;
-                    border-radius: 50px;
-                    background: #FFFFFF;
-                    color: rgb(12, 12, 12);
-                    margin: 0 2px;
-                    font-family: Arial, Helvetica, sans-serif;
-                    font-weight: 700;
-                    &:hover{
-                        text-decoration: none;
-                        background: #263238;
-                        color: white;
-                    }
-                    .icon{
-                      margin: auto 2px;
-                    background-color: rgba(241, 240, 240, 0.657);
-                    width: 15px;
-                    height: 15px;
-                    }
- 
-                }
-               }
-              
-            }
-            p{
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            h6{
-                font-family: 'Montserrat', sans-serif;
-                font-weight: 500;
-                text-shadow: -2px -1px 12px rgba(140, 170, 135, 0.72);
-            }
-        }
-    }
-    .closeBtn{
-        display: flex;
-        border: 1px solid black;
-        margin: 20px auto;
-        text-align: center;
-        padding: 5px 40px;
-        align-self: center;   
-        border-radius: 20px; 
-        font-size: 20px;
-        background-color: #FFFFFF;
-        
-        &:hover{
-            color: white;
-            background: #263238;
-        }    
-    }
-}    
-
-
-@media screen and (min-width: 760px) and (max-width:  1024px ){
-    .modal {
-        width: 100%;
-        height: auto;
-        border: 2px solid green;
-    }
-
-    .paper {
-        width: 100% !important;
-        height: auto;
-
-        flex-direction: column;
-        align-items: center;
-
-        .posterPath {
-            width: 100%;
-        }
-        
-        .overview {
-            width: 100% !important;
-            text-align: center;
-        }
-    }
 }
-@media screen and (min-width: 760px) and (max-width:  1024px ){
-
 }

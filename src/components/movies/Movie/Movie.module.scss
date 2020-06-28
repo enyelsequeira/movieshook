@@ -1,8 +1,9 @@
 .movie {
     padding: 10px 10px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
+
+ 
 
     img {
         border-radius: 20px;
@@ -24,47 +25,72 @@
             cursor: pointer;
         }
     }
+  
 }
 
 
-@media screen and (min-width: 760px) and (max-width:  1024px ){
-.movie{
-    padding: 0;
-    border: 2px solid red;
-    img{
-        width: 80%;
-        height: auto;
-    }
-    h4 {
-        width: 100%;
-        text-align: center;
+// @media screen and (min-width: 600px) and (max-width:  960px ){
+//     .movie{
+//         border: 2px solid rgb(27, 25, 25);
+//         margin: 0 auto;
+//         display: flex;
+//         justify-content: center;
+//         img {
+//             border-radius: 20px;
+//             width: 70%;
+//             height: auto;
+//             display: flex;
+//             justify-content: center;
+//             margin: auto;
+//             border: 1px solid green;
+//         }
+//         h4{
+//             text-align: center;
+//             color: red;
+//             font-size: 1rem;
+//             text-overflow: ellipsis;
+            
+//         }
+//     }
+// }
+// @media screen and (min-width: 760px) and (max-width:  1024px ){
+// .movie{
+//     padding: 0;
+//     border: 2px solid red;
+//     img{
+//         width: 80%;
+//         height: auto;
+//     }
+//     h4 {
+//         width: 100%;
+//         text-align: center;
 
-    }
-    StarRatings{
-        width: 100%;
-        border: 2px solid blue;
-    }
-}
+//     }
+//     StarRatings{
+//         width: 100%;
+//         border: 2px solid blue;
+//     }
+// }
 
-}
+// }
 
-@media (min-width: 1025px) and (max-width: 1280px) {
-    .movie{
-        padding: 0;
-        border: 2px solid blue;
-        img{
-            width: 100%;
-            height: auto;
-        }
-        h4 {
-            width: 100%;
-            text-align: center;
+// @media (min-width: 1025px) and (max-width: 1280px) {
+//     .movie{
+//         padding: 0;
+//         border: 2px solid blue;
+//         img{
+//             width: 100%;
+//             height: auto;
+//         }
+//         h4 {
+//             width: 100%;
+//             text-align: center;
     
-        }
-        StarRatings{
-            width: 100%;
-            border: 2px solid blue;
-        }
-    }
+//         }
+//         StarRatings{
+//             width: 100%;
+//             border: 2px solid blue;
+//         }
+//     }
     
-  }
+//   }
