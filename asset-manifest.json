@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/movieshook/static/css/main.7d0e172d.chunk.css",
+    "main.css": "/movieshook/static/css/main.a72dcc9f.chunk.css",
     "main.js": "/movieshook/static/js/main.5764b077.chunk.js",
     "main.js.map": "/movieshook/static/js/main.5764b077.chunk.js.map",
     "runtime-main.js": "/movieshook/static/js/runtime-main.9c229e01.js",
@@ -8,15 +8,15 @@
     "static/js/2.3f5a8dd8.chunk.js": "/movieshook/static/js/2.3f5a8dd8.chunk.js",
     "static/js/2.3f5a8dd8.chunk.js.map": "/movieshook/static/js/2.3f5a8dd8.chunk.js.map",
     "index.html": "/movieshook/index.html",
-    "precache-manifest.835bd0b06b04248c692ae867b6d7a132.js": "/movieshook/precache-manifest.835bd0b06b04248c692ae867b6d7a132.js",
+    "precache-manifest.488694e2e88fd807033c29147569e712.js": "/movieshook/precache-manifest.488694e2e88fd807033c29147569e712.js",
     "service-worker.js": "/movieshook/service-worker.js",
-    "static/css/main.7d0e172d.chunk.css.map": "/movieshook/static/css/main.7d0e172d.chunk.css.map",
+    "static/css/main.a72dcc9f.chunk.css.map": "/movieshook/static/css/main.a72dcc9f.chunk.css.map",
     "static/js/2.3f5a8dd8.chunk.js.LICENSE.txt": "/movieshook/static/js/2.3f5a8dd8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.9c229e01.js",
     "static/js/2.3f5a8dd8.chunk.js",
-    "static/css/main.7d0e172d.chunk.css",
+    "static/css/main.a72dcc9f.chunk.css",
     "static/js/main.5764b077.chunk.js"
   ]
 }
