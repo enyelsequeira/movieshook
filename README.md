@@ -1,8 +1,10 @@
-# MOVIE APP Usind TMDB
+# MOVIE APP USING TMDB
 
-### Overview
+## Overview
 * This is an updated and better version of my movie app, where I only had 10 personal movies, This app fetches data from the TMDB API to show information about movies. 
 
+### Prerequisites
+* You need to create an account and get an API key in the MovieDatabase Api [Follow the link -> ](https://developers.themoviedb.org/3)
 
 ### Functionality
 
@@ -11,5 +13,15 @@
 
 ### Technologies
 * To build this app latest technologies were used, using React hooks and Redux for state management. As for Css this app uses Material UI for some parts, and the most using css grid/flex. 
+
+- React JS
+- React Router
+- Redux, Redux-Thunk
+- MaterialUI
+- SCSS modules
+
+
+### Installing 
+* Clone the Repo and run npm install and npm run to run on localhost
 
 [Click here to see live Version --> ](https://enyelsequeira.github.io/movieshook/)
