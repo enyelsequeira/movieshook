@@ -63,7 +63,7 @@ function MovieInformation() {
               </div>
 
               <div className={styles.languages}>
-                <h5 className={styles.genreTitle}>Langugaes</h5>
+                <h5 className={styles.langTitle}>Languages</h5>
                 <ul className={styles.genreList}>
                   {movie.spoken_languages.map((lan, i) => (
                     <p className={styles.lang} key={i}>{lan.name}</p>
@@ -73,24 +73,29 @@ function MovieInformation() {
 
               <div className={styles.cast}>
                 <h5 className={styles.castTitle}>Cast</h5>
-                {movie.cast.map((character, i) => (
-                  <img key={i} className={styles.castImage} src={`https://image.tmdb.org/t/p/w500/${character.profile_path}`} alt={character.name} />
-                ))}
+                <ul className={styles.castList}>
+                  {movie.cast.map((character, i) => (
+                    <img key={i} className={styles.castImage} src={`https://image.tmdb.org/t/p/w500/${character.profile_path}`} alt={character.name} />
+                  ))}
+                </ul>
               </div>
 
             </div>
 
             <div className={styles.buttons}>
-              <button type="button" className={styles.button}>
-                <a href={`https://www.imdb.com/title/${movie.imdb_id}`}> IMDB  <FaImdb className={styles.icon} /></a>
-              </button>
-              <button type="button" className={styles.button} onClick={handleOpen}>
-                Trailer
-                <BsPlay className={styles.icon} />
-              </button>
-              <button type="button" className={styles.button}>
-                <a href={`${movie.homepage}`}>Website <FiLink className={styles.icon} /> </a>
-              </button>
+              <div className={styles.left}>
+                <button type="button" className={styles.button}>
+                  <a href={`https://www.imdb.com/title/${movie.imdb_id}`}> IMDB  <FaImdb className={styles.icon} /></a>
+                </button>
+                <button type="button" className={styles.button} onClick={handleOpen}>
+                  Trailer
+                  <BsPlay className={styles.icon} />
+                </button>
+                <button type="button" className={styles.button}>
+                  <a href={`${movie.homepage}`}>Website <FiLink className={styles.icon} /> </a>
+                </button>
+              </div>
+              <button type="button" className={styles.right}>Back</button>
             </div>
 
           </div>

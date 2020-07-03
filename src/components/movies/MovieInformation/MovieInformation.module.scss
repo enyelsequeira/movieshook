@@ -4,11 +4,191 @@
     padding: 0;
     list-style: none;
 }
+.container{
+    display: flex;
+    flex-direction: column;
+    .movieContainer{
+        display: flex;
+        margin-bottom: 10px;
+        .posterPath{
+            height: 50%;
+            width: 100%;
+            max-width: 40%;
+            flex: 1 1 40%;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem;
+            max-height: 100%;
+            object-fit: cover;
+            border-radius: 0.8rem;
+            box-shadow: 0rem 2rem 5rem rgb(64, 64, 70);
+        }
+        .movieInformation{
+            width: 100%;
+            max-width: 60%;
+            padding: 2rem;
+            flex: 1 1 60%;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Montserrat', sans-serif;
+            .movieTop{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-content: center;
+                align-items: center;
+                .titles{
+                color: #263238;
+                font-weight: 700;
+                }
+                .title{
+                color: #171738;
+                font-weight: 300;
+                text-transform: uppercase;
+                text-shadow: 6px 4px 14px rgba(165, 154, 135, 0.63);  
+                text-align: center;  
+                letter-spacing: -0.5px;
+                margin-bottom: 0.5rem;
+                }
+                .subtitle{
+                    font-weight: 500;
+                    font-size: 1rem;
+                }
+                .synopsis{
+                    text-align: center;
+                    .textSummary{
+                        font-weight: 300;
+                        font-size: 1.2rem;
+
+                    }
+                }
+            }
+            .movieMiddle{
+                display: flex;
+                height: auto;
+                flex-direction: column;
+                .genres{
+                    display: flex;
+                    height: auto;
+                    flex-direction: column;
+                    .genreTitle{
+                        text-align: center;
+                    }
+                    .genreList{
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+                        height: 100%;
+                        .links{
+                             text-align: center;
+                             padding: 10px 10px;
+                             font-size: 15px;
+                             border-radius: 15px;
+                             margin-left: 10px;
+                             border: .5px solid;
+                             padding: 4px 10px;
+                             border-radius: 50px;
+                             background: #FFFFFF;
+                             color: rgb(12, 12, 12);
+                             font-family: Arial, Helvetica, sans-serif;
+                             font-weight: 700;
+                             align-items: center;
+                             &:hover{
+                            text-decoration: none;
+                             background: #263238;
+                             color: white;
+                             }   
+
+                        }
+                    }
+                   
+                }
+                .languages{
+                    display: flex;
+                    flex-direction: column;
+                    .langTitle{
+                        text-align: center;
+                    }
+                    .genreList{
+                        text-align: center;
+                    }
+                }
+                .cast{
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    .castTitle{
+                        text-align: center;               
+                    }
+                       
+                    .castImage{   
+                        width: 5rem;
+                        height: 5rem;
+                        border-radius: 50%;
+                        object-fit: cover;
+                        background-color: transparent;
+                        margin: 5px 5px;
+                    }
+                }
+            }
+
+            .buttons{
+                display: flex;
+                justify-content: space-between;
+                .right{
+                    display: flex;
+                    border: .5px solid;
+                    align-items: center;
+                    padding: 4px 20px;
+                    border-radius: 50px;
+                    background: #FFFFFF;
+                    color: rgb(12, 12, 12);
+                    margin: 0 2px;
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-weight: 700;
+                    &:hover{
+                        text-decoration: none;
+                        background: #263238;
+                        color: white;
+                    }   
+                }
+                
+                .left{
+                    display: flex;
+                    .button{
+                        display: flex;
+                        border: .5px solid;
+                        align-items: center;
+                        padding: 4px 20px;
+                        border-radius: 50px;
+                        background: #FFFFFF;
+                        color: rgb(12, 12, 12);
+                        margin: 0 2px;
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-weight: 700;
+                       
+                        &:hover{
+                            text-decoration: none;
+                            background: #263238;
+                            color: white;
+                        }                    
+                    }
+                }
+               
+
+            }
+
+       
+           
+        }
+
+    }
+}
+
 
 // .container{
 //     display: flex;
 //     flex-direction: column;
-//     min-width: 1200px;
 //     .movieContainer{
 //         margin: 10px;
 //         display: grid;
@@ -148,124 +328,7 @@
     }
 }
 }
-@media screen and (min-width: 321px) and (max-width: 768px){
-   .container{
-       border: 1px solid rgb(255, 0, 85);
-       width: 100%;
-       .movieContainer{
-           border: 1px solid blue;
-           width: 100%;
-           .posterPath{
-               width: 80%;
-               display: flex;
-               margin: 10px auto;
-           }
-           .movieInformation{
-               display: flex;
-               flex-direction: column;
-               .movieTop{
-                   display: flex;
-                   flex-direction: column;
-                   align-items: center;
-                   margin-bottom: 5px;
-                   text-align: center;
-                   .synopsis{
-                       margin: 10px;
-                   }
-               }
-               .movieMiddle{
-                   .genres{
-                       display: flex;
-                       flex-direction: column;
-                       justify-content: center;
-                       margin-bottom: 5px;
-                       .genreTitle{
-                           text-align: center;
-                       }
-                       .genreList{
-                           display: flex;
-                           justify-content: center;
-                           width: 80%;
-                           align-content: center;
-                           margin: 10px auto;
-                           .links{
-                            display: flex;
-                            text-align: center;
-                            padding: 10px 10px;
-                            font-size: 15px;
-                            border-radius: 15px;
-                            margin-left: 10px;
-                            border: .5px solid;
-                            padding: 4px 20px;
-                            border-radius: 50px;
-                            background: #FFFFFF;
-                            color: rgb(12, 12, 12);
-                            font-family: Arial, Helvetica, sans-serif;
-                            font-weight: 700;
-                            align-items: center;
-                            &:hover{
-                           text-decoration: none;
-                            background: #263238;
-                            color: white;
-                            }   
-                            
-                        }
-                       }
-                      
-                   }
-                   .languages{
-                       display: flex;
-                       flex-direction: column;
-                       align-items: center;
-                   }
 
-                   .cast{
-                       margin: auto;
-                       .castTitle{
-                           color: red;
-                           text-align: center;
-                           padding: 10px;
-                       }
-                       .castImage{
-                           width: 47%;
-                           margin: 5px 5px;
-                           padding: 10px 10px;
-                           align-items: center;
-                           border-radius: 20px;
-                           
-                       }
-                   }
-               }
-
-               .buttons{
-                   border: 1px solid green;
-                   display: flex;
-                   align-items: center;
-                   margin: 10px;
-                   justify-content: space-around;
-                   .button{
-                    display: flex;
-                    border: .5px solid;
-                    align-items: center;
-                    padding: 4px 20px;
-                    border-radius: 50px;
-                    background: #FFFFFF;
-                    color: rgb(12, 12, 12);
-                    margin: 0 2px;
-                    font-family: Arial, Helvetica, sans-serif;
-                    font-weight: 700;
-                    &:hover{
-                    text-decoration: none;
-                    background: #263238;
-                    color: white;
-                } 
-               }
-            }
-
-           }
-       }
-   }
-}
 @media screen and (min-width: 769px) and (max-width:  1024px ){
     .container{
         .movieContainer{
@@ -450,3 +513,126 @@
 //     }
 
 // }
+
+
+
+//// testing
+
+// @media screen and (min-width: 321px) and (max-width: 768px){
+//     .container{
+//         border: 1px solid rgb(255, 0, 85);
+//         width: 100%;
+//         .movieContainer{
+//             border: 1px solid blue;
+//             width: 100%;
+//             .posterPath{
+//                 width: 80%;
+//                 display: flex;
+//                 margin: 10px auto;
+//             }
+//             .movieInformation{
+//                 display: flex;
+//                 flex-direction: column;
+//                 .movieTop{
+//                     display: flex;
+//                     flex-direction: column;
+//                     align-items: center;
+//                     margin-bottom: 5px;
+//                     text-align: center;
+//                     .synopsis{
+//                         margin: 10px;
+//                     }
+//                 }
+//                 .movieMiddle{
+//                     .genres{
+//                         display: flex;
+//                         flex-direction: column;
+//                         justify-content: center;
+//                         margin-bottom: 5px;
+//                         .genreTitle{
+//                             text-align: center;
+//                         }
+//                         .genreList{
+//                             display: flex;
+//                             justify-content: center;
+//                             width: 80%;
+//                             align-content: center;
+//                             margin: 10px auto;
+//                             .links{
+//                              display: flex;
+//                              text-align: center;
+//                              padding: 10px 10px;
+//                              font-size: 15px;
+//                              border-radius: 15px;
+//                              margin-left: 10px;
+//                              border: .5px solid;
+//                              padding: 4px 20px;
+//                              border-radius: 50px;
+//                              background: #FFFFFF;
+//                              color: rgb(12, 12, 12);
+//                              font-family: Arial, Helvetica, sans-serif;
+//                              font-weight: 700;
+//                              align-items: center;
+//                              &:hover{
+//                             text-decoration: none;
+//                              background: #263238;
+//                              color: white;
+//                              }   
+                             
+//                          }
+//                         }
+                       
+//                     }
+//                     .languages{
+//                         display: flex;
+//                         flex-direction: column;
+//                         align-items: center;
+//                     }
+ 
+//                     .cast{
+//                         margin: auto;
+//                         .castTitle{
+//                             color: red;
+//                             text-align: center;
+//                             padding: 10px;
+//                         }
+//                         .castImage{
+//                             width: 47%;
+//                             margin: 5px 5px;
+//                             padding: 10px 10px;
+//                             align-items: center;
+//                             border-radius: 20px;
+                            
+//                         }
+//                     }
+//                 }
+ 
+//                 .buttons{
+//                     border: 1px solid green;
+//                     display: flex;
+//                     align-items: center;
+//                     margin: 10px;
+//                     justify-content: space-around;
+//                     .button{
+//                      display: flex;
+//                      border: .5px solid;
+//                      align-items: center;
+//                      padding: 4px 20px;
+//                      border-radius: 50px;
+//                      background: #FFFFFF;
+//                      color: rgb(12, 12, 12);
+//                      margin: 0 2px;
+//                      font-family: Arial, Helvetica, sans-serif;
+//                      font-weight: 700;
+//                      &:hover{
+//                      text-decoration: none;
+//                      background: #263238;
+//                      color: white;
+//                  } 
+//                 }
+//              }
+ 
+//             }
+//         }
+//     }
+//  }
