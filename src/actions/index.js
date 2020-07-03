@@ -52,7 +52,7 @@ export const getMovieDetails = ({ id }) => async (dispatch) => {
     dispatch({ type: 'FETCH_MOVIE_REQUEST' });
     const { data: movieDetails } = await moviesAPI.get(`/movie/${id}`, { params: { append_to_response: 'videos' } });
     const { data: { cast: castData } } = await moviesAPI.get(`/movie/${id}/credits`);
-    const cast = castData.slice(0, 5);
+    const cast = castData.slice(0, 6);
     dispatch({ type: 'FETCH_MOVIE_SUCCESS', payload: { ...movieDetails, cast } });
   } catch (e) {
     dispatch({ type: 'FETCH_MOVIE_FAILURE', payload: { error: 'SOMETHING HAPPENED' } });
