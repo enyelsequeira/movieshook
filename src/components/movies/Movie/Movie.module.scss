@@ -2,10 +2,13 @@
     padding: 10px 10px;
     display: flex;
     text-align: center;
-    
 
- 
-
+    .links{
+        font-weight: bolder;
+        &:hover{
+            text-decoration: none;
+        }
+    }
     img {
         border-radius: 20px;
         height: 300px;
@@ -26,6 +29,7 @@
         text-align: center;
         &:hover{
             cursor: pointer;
+            text-decoration: none;
         }
     }
   
