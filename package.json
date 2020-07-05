@@ -2,7 +2,6 @@
   "name": "movieshooks",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://enyelsequeira.github.io/movieshook",
   "dependencies": {
     "@material-ui/core": "^4.9.9",
     "@material-ui/icons": "^4.9.1",
@@ -28,8 +27,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
