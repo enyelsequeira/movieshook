@@ -7,6 +7,7 @@ import { MdFavorite } from 'react-icons/md';
 import { BsGraphUp } from 'react-icons/bs';
 import { selectGenre, selectCategory, getGenres } from '../../actions';
 import styles from './Sidebar.module.scss';
+import Img from '../../Img/cinemas.svg';
 
 const categories = [
   { label: 'Popular', value: 'popular', icon: <AiTwotoneLike /> },
@@ -24,7 +25,11 @@ const Sidebar = () => {
 
   return (
     <>
+      <div className={styles.image}>
+        <img className={styles.testing} src={Img} />
+      </div>
       <Divider />
+
       <List>
         <ListSubheader>Categories</ListSubheader>
         {categories.map(({ label, value, icon }, i) => (
