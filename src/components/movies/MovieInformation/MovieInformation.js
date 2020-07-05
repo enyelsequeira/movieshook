@@ -99,7 +99,7 @@ function MovieInformation() {
         </div>
 
         <div>
-          <h1>Recomendations</h1>
+          {/* <h1>Recomendations</h1> */}
 
         </div>
         {/* <div className={styles.overview}>
