@@ -195,7 +195,6 @@
 @media screen and (max-width: 320px){
     .container{
         .movieContainer{
-            border: 1px solid blue;
             display: flex;
             flex-direction: column;
             .posterPath{
@@ -211,19 +210,15 @@
             }
             .movieInformation{
                 display: flex;
-                border: 1px solid red;
                 width: 100%;
                 margin-top: 10px;
                 max-width: 100%;
                 .movieMiddle{
-                    background: burlywood;
                     width: 100%;
                     max-width: 100%;
                     .genres{
                         display: flex;
-                        border: solid blue 1px;
                         .genreList{
-                            border: chartreuse solid 1px;
                             display: flex;
                             flex-direction: column;
                             .links{
@@ -242,7 +237,6 @@
                     }
                 }
                 .buttons{
-                    border: 1px solid green;
                     width: 100%;
                     max-width: 100%;
                     display: flex;
@@ -271,7 +265,6 @@
 @media screen and (min-width: 321px) and (max-width: 768px){
     .container{
         .movieContainer{
-            border: 1px solid green;
             display: flex;
             flex-direction: column;
             .posterPath{
@@ -282,12 +275,10 @@
                 max-height: 100%;
                 border-radius: 0.8rem;
                 box-shadow: 0rem 2rem 5rem rgb(64, 64, 70);
-                border: 1px solid rgb(104, 76, 76);
                 margin: auto;
 
             }
             .movieInformation{
-                border: 1px solid red;
                 margin-top: 20px;
                 max-width: 100%;
                 .movieMiddle{
@@ -338,7 +329,6 @@
 @media screen and (min-width: 769px) and (max-width:  1024px ){
     .container{
         .movieContainer{
-            border: 1px solid red;
             display: flex;
             flex-direction: column;
             .posterPath{
@@ -349,11 +339,9 @@
                 max-height: 100%;
                 border-radius: 0.8rem;
                 box-shadow: 0rem 2rem 5rem rgb(64, 64, 70);
-                border: 1px solid rgb(104, 76, 76);
                 margin: auto;
             }
             .movieInformation{
-                border: 1px solid rgb(136, 112, 112);
                 margin-top: 20px;
                 max-width: 100%;
                  .cast{
@@ -371,7 +359,6 @@
 @media (min-width: 1025px) and (max-width: 1280px) {
     .container{
        .movieContainer{
-           border: 1px solid rgb(240, 101, 101);
            display: flex;
            flex-direction: column;
            max-width: 100%;
@@ -387,7 +374,6 @@
             margin: auto;
            }
            .movieInformation{
-               border: 1px solid blue;
                max-width:100%;
                .movieMiddle{
                 .cast{
@@ -397,7 +383,6 @@
             }
                .movieTop{
                 max-width:100%;
-                border: 1px solid red;
                 
 
                    .title{
