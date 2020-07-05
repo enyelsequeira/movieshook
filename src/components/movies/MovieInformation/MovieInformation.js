@@ -84,16 +84,13 @@ function MovieInformation() {
 
             <div className={styles.buttons}>
               <div className={styles.left}>
-                <button type="button" className={styles.button}>
-                  <a href={`https://www.imdb.com/title/${movie.imdb_id}`}> IMDB  <FaImdb className={styles.icon} /></a>
-                </button>
+                <a className={styles.button} href={`https://www.imdb.com/title/${movie.imdb_id}`}> IMDB  <FaImdb className={styles.icon} /></a>
                 <button type="button" className={styles.button} onClick={handleOpen}>
                   Trailer
                   <BsPlay className={styles.icon} />
                 </button>
-                <button type="button" className={styles.button}>
-                  <a href={`${movie.homepage}`}>Website <FiLink className={styles.icon} /> </a>
-                </button>
+                <a className={styles.button} href={`${movie.homepage}`}>Website <FiLink className={styles.icon} /> </a>
+
               </div>
               <button type="button" className={styles.right}>Back</button>
             </div>
@@ -103,13 +100,7 @@ function MovieInformation() {
 
         <div>
           <h1>Recomendations</h1>
-          <h1>Recomendations</h1>
-          <h1>Recomendations</h1>
-          <h1>Recomendations</h1>
-          <h1>Recomendations</h1>
-          <h1>Recomendations</h1>
-          <h1>Recomendations</h1>
-          <h1>Recomendations</h1>
+
         </div>
         {/* <div className={styles.overview}>
           <h2>{movie.title}</h2>

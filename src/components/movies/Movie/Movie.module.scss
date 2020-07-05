@@ -6,7 +6,8 @@
     .links{
         font-weight: bolder;
         &:hover{
-            text-decoration: none;
+            text-decoration:none; 
+            // color:#2b2b2b
         }
     }
     img {
@@ -15,7 +16,6 @@
         &:hover{
             cursor: pointer;
             transform: scale(1.05);
-            box-shadow: 2px 2px 5px 0px rgb(100, 182, 174);
         }
     }
     

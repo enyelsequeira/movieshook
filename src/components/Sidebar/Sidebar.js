@@ -28,9 +28,9 @@ const Sidebar = () => {
       <List>
         <ListSubheader>Categories</ListSubheader>
         {categories.map(({ label, value, icon }, i) => (
-          <Link to="/">
+          <Link className={styles.links} to="/">
             <ListItem onClick={() => dispatch(selectCategory(value, 1))} button key={i}>
-              <ListItemText className={styles.links}>  {label}  <span>{icon}</span></ListItemText>
+              <ListItemText>  {label}  <span>{icon}</span></ListItemText>
             </ListItem>
           </Link>
         ))}
@@ -39,10 +39,10 @@ const Sidebar = () => {
       <List>
         <ListSubheader>Genres</ListSubheader>
         {genres ? genres.map(({ name, id }) => (
-          <Link to="/">
+          <Link className={styles.links} to="/">
             <ListItem onClick={() => dispatch(selectGenre(id, 1))} button key={id}>
               <ListItemText primary={name} />
-              <AiTwotoneEye />
+              {/* <AiTwotoneEye /> */}
             </ListItem>
           </Link>
         )) : null}

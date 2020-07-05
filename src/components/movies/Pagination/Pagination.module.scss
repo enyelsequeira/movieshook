@@ -5,21 +5,33 @@
 }
 
 .button {
-    margin: 50px 0;
-    border-radius: 0.2rem;
-    padding: 0.5rem 2rem;
-    outline: 0;
-    height: 40px;
-    min-width: 20%;
-    font-size: 15px;
-    background-color:rgba(27, 11, 11, 0.8);
-    color: rgb(194, 177, 177);
-    font-weight: bolder;
-    border: solid;
-    border-color:rgba(0, 255, 255, 0.5);
-    &:hover{
-        color: rgb(14, 12, 12);
+    // margin: 50px 0;
+    // border-radius: 0.2rem;
+    // padding: 0.5rem 2rem;
+    // outline: 0;
+    // height: 40px;
+    // min-width: 20%;
+    // font-size: 15px;
+    // background-color:rgba(27, 11, 11, 0.8);
+    // color: rgb(194, 177, 177);
+    // font-weight: bolder;
+    // border: solid;
+    // border-color:rgba(0, 255, 255, 0.5);
+    display: flex;
+    border: 1px solid;
+    align-items: center;
+    padding: 2px 45px;
+    border-radius: 20px;
+    background: #FFFFFF;
 
+    color: rgb(12, 12, 12);
+    margin: 20px 2px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    &:hover{
+        text-decoration: none;
+        background: #263238;
+        color: white;
     }
 }
 
