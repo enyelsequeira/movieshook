@@ -3,9 +3,10 @@ import { AppBar, CssBaseline, IconButton, Drawer, Hidden, Toolbar } from '@mater
 import { useTheme } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import moviesAPI from '../api/moviesAPI';
 import { Search, Movies, Sidebar } from '.';
-import MovieInfo from "./Movies/MovieInformation/MovieInformation";
+import MovieInfo from './Movies/MovieInformation/MovieInformation';
 
 import useStyles from './AppStyles';
 
@@ -42,14 +43,16 @@ const App = ({ container }) => {
         </nav>
         <main className={classes.content}>
           <div className={classes.toolbar} />
-          <Switch>
-            <Route exact path="/movie">
-              <MovieInfo />
-            </Route>
-            <Route exact path="/">
-              <Movies />
-            </Route>
-          </Switch>
+          <AnimatePresence>
+            <Switch>
+              <Route exact path="/movie">
+                <MovieInfo />
+              </Route>
+              <Route exact path="/">
+                <Movies />
+              </Route>
+            </Switch>
+          </AnimatePresence>
         </main>
       </div>
     </BrowserRouter>
