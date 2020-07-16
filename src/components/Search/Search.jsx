@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Paper from '@material-ui/core/Paper';
+import TextField from '@material-ui/core/TextField';
 import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
@@ -22,6 +23,7 @@ const Search = () => {
   };
 
   return (
+
     <Paper component="form" className={classes.root}>
       <InputBase
         className={classes.input}

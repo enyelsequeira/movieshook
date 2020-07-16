@@ -30,13 +30,13 @@ const App = ({ container }) => {
         <nav className={classes.drawer} aria-label="mailbox folders">
           <Hidden smUp implementation="css">
             <Drawer container={container} variant="temporary" anchor={theme.direction === 'rtl' ? 'right' : 'left'} open={mobileOpen} onClose={() => setMobileOpen(!mobileOpen)} classes={{ paper: classes.drawerPaper }} ModalProps={{ keepMounted: true }}>
-              <div className={classes.toolbar} />
+              {/* <div className={classes.toolbar} /> */}
               <Sidebar />
             </Drawer>
           </Hidden>
           <Hidden xsDown implementation="css">
             <Drawer classes={{ paper: classes.drawerPaper }} variant="permanent" open>
-              <div className={classes.toolbar} />
+              {/* <div className={classes.toolbar} /> */}
               <Sidebar />
             </Drawer>
           </Hidden>

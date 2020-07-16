@@ -35,7 +35,7 @@ const Sidebar = () => {
         {categories.map(({ label, value, icon }, i) => (
           <Link className={styles.links} to="/">
             <ListItem onClick={() => dispatch(selectCategory(value, 1))} button key={i}>
-              <ListItemText>  {label}  <span>{icon}</span></ListItemText>
+              <ListItemText>  {label} </ListItemText>
             </ListItem>
           </Link>
         ))}

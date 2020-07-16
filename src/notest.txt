@@ -1,0 +1,14 @@
+add a placeholder image for the movies that don't have image // search ad astra
+when opening the movie, make the loader in the center (currently its on top left)
+back button not working
+
+//  when loading /movie immidiately it gives an error (should be handled)
+
+movie info
+- add a bit more margin top to stars and the mins
+- make actor images clickable (redirect to their imdb page)
+- make trailer in the middle 
+- make the imdb link to target_blank, website
+- make placeholder image if actor doesent have image
+
+- crazy movie clicking gives error

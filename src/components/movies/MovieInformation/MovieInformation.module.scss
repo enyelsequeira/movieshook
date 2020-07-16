@@ -1,139 +1,198 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;400;500;600;700&family=IBM+Plex+Serif:wght@200;300;400;500;600;700&display=swap');
 *{
     margin: 0;
     padding: 0;
     list-style: none;
 }
-// a:hover{
-//     text-decoration: none;
-//     background: #263238;
-//     color: white;
 
-// }
 .container{
-    display: flex;
-    flex-direction: column;
+    // min-width: 1280px;
     .movieContainer{
-        display: flex;
-        margin-bottom: 10px;
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 
+        "pp mi";
         .posterPath{
-            height: 50%;
-            width: 100%;
-            max-width: 40%;
-            flex: 1 1 40%;
-            align-items: center;
-            justify-content: center;
-            padding: 4rem;
-            max-height: 100%;
-            object-fit: cover;
             border-radius: 0.8rem;
-            box-shadow: 0rem 2rem 5rem rgb(64, 64, 70);
+            box-shadow: .5em 1em 1em rgb(64, 64, 70);
+            border: 1px solid rgb(211, 188, 188);
+              grid-area: pp;
+              align-self: center;
+              margin: 0 auto;
+              max-width: fit-content;
+            max-height: 80%;
+            height: 90%;
         }
         .movieInformation{
-            width: 100%;
-            max-width: 60%;
-            padding: 2rem;
-            flex: 1 1 60%;
-            display: flex;
-            flex-direction: column;
+            padding: 1em;
             font-family: 'Montserrat', sans-serif;
+            grid-area: mi;
+            max-width: 100%;
             .movieTop{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-content: center;
-                align-items: center;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(4, 1fr);
+                grid-template-areas: 
+                "title title title"
+                "title title title"
+                "subtitle subtitle subtitle "
+                "ratings runtime runtime";
                 .titles{
-                color: #263238;
                 font-weight: 700;
                 }
                 .title{
                 color: #171738;
-                font-weight: 300;
                 text-transform: uppercase;
                 text-shadow: 6px 4px 14px rgba(165, 154, 135, 0.63);  
                 text-align: center;  
-                letter-spacing: -0.5px;
-                margin-bottom: 0.5rem;
+                letter-spacing: .01em;
+                align-self: center;
+                grid-area: title;
+                font-size: 2.2em;
+                margin: 0;
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-weight: normal;
                 }
                 .subtitle{
                     font-weight: 500;
-                    font-size: 1rem;
-                }
-                .synopsis{
+                    font-size: 1.1em;
+                    grid-area: subtitle;
+                    justify-content: center;
+                    align-items: center;
                     text-align: center;
-                    .textSummary{
-                        font-weight: 300;
-                        font-size: 1.2rem;
-
-                    }
+                    margin-top: 0;
+                    font-family: 'IBM Plex Serif', serif;
+                    font-weight: 400;
+                    margin-bottom: .5em;
                 }
+                .ratingSection{
+                    grid-area: ratings;
+                    margin-top: .5em;
+                    margin: auto;
+                    display: flex;
+                    align-items: center;
+                    .votes{
+                       justify-content: center;
+                       align-content: center;
+                       align-items: center; 
+                    //    margin-top: 3px;
+                       justify-items: center;
+                       margin-left: 3px;
+                    }
+                   
+                }
+                .votes{
+                    grid-area: votes;
+                }
+                .releaseDate{
+                    grid-area: release;
+                }
+                .runtime{
+                    grid-area: runtime;
+                    max-width: 100%;
+                    text-align: right;
+                    margin: auto;
+                    justify-items: end;
+                    // font-size: .95em;
+                }
+              
             }
             .movieMiddle{
                 display: flex;
                 height: auto;
                 flex-direction: column;
+                margin-top: 4em;
+                .synopsisContainer{
+                    margin-bottom: 1.2em;
+                    .castTitle{
+                        font-family: 'IBM Plex Sans', sans-serif;
+                        font-weight: 400;
+                    }
+                      .textSummary{
+                          font-size: 1.2em;
+                          font-family: 'IBM Plex Serif', serif;
+                          font-weight: 300;
+                      }
+                  }
                 .genres{
-                    display: flex;
-                    height: auto;
-                    flex-direction: column;
+                    display: grid;
+                    margin-bottom: 2em;
+                    grid-template-columns: auto;
+                    grid-template-rows: auto;
+                    grid-template-areas: 
+                    "genreTitle genreTitle"
+                    "genreList .";
                     .genreTitle{
                         text-align: center;
+                        grid-area: genreTitle;
+                        text-align: left;
+                        font-family: 'IBM Plex Sans', sans-serif;
+                        font-weight: 400;
+                        font-size: 1.5em;
                     }
                     .genreList{
                         align-items: center;
-                        justify-content: center;
-                        text-align: center;
                         height: 100%;
+                        grid-area: genreList;
+                        display: flex;
+                        text-align: left;
+                        justify-content: end;
                         .links{
                              text-align: center;
-                             padding: 10px 10px;
-                             font-size: 15px;
-                             border-radius: 15px;
-                             margin-left: 10px;
-                             border: .5px solid;
-                             padding: 4px 10px;
-                             border-radius: 50px;
-                             background: #FFFFFF;
-                             color: rgb(12, 12, 12);
-                             font-family: Arial, Helvetica, sans-serif;
-                             font-weight: 700;
+                             padding: .5em .6em;
+                             font-size: .9em;
+                             border-radius: 1em;
+                             border: none;
+                             margin-right: .5em;
+                             color: #020f1f;
+                             font-family: 'IBM Plex Serif', serif;
+                             font-weight: 400;
                              align-items: center;
+                             text-transform: uppercase;
                              &:hover{
                             text-decoration: none;
-                             background: #263238;
-                             color: white;
-                             }   
+                            transform: translateY(-3px);  
+                            transition: ease-in .3s;
+ 
+                         
+                        }   
 
                         }
                     }
                    
                 }
-                .languages{
-                    display: flex;
-                    flex-direction: column;
-                    .langTitle{
-                        text-align: center;
-                    }
-                    .genreList{
-                        text-align: center;
-                    }
-                }
+               
                 .cast{
-                    display: flex;
-                    justify-content: space-around;
+                    display: grid;
+                    max-width: 100%;
+                    margin: 0;
+                    grid-template-columns: auto;
+                    grid-template-rows: auto;
+                    grid-template-areas: 
+                    "casttitle casttitle"
+                    "castlist .";
                     align-items: center;
+                    .castList{
+                        grid-area: castlist;
+                    }
                     .castTitle{
-                        text-align: center;               
+                        text-align: left;
+                      justify-content: end;
+                      grid-area: casttitle;
+                      font-family: 'IBM Plex Sans', sans-serif;
+                      font-weight: 400;              
                     }
                        
                     .castImage{   
-                        width: 5rem;
-                        height: 5rem;
-                        border-radius: 50%;
+                        width: 5em;
+                        height: 5em;
+                        object-fit: cover;
+                        border-radius: 10px;
                         object-fit: cover;
                         background-color: transparent;
-                        margin: 5px 5px;
+                        margin: 5px .7em;
                     }
                 }
             }
@@ -141,6 +200,7 @@
             .buttons{
                 display: flex;
                 justify-content: space-between;
+             
                 .right{
                     display: flex;
                     border: .5px solid;
@@ -150,12 +210,16 @@
                     background: #FFFFFF;
                     color: rgb(12, 12, 12);
                     margin: 0 2px;
-                    font-family: Arial, Helvetica, sans-serif;
-                    font-weight: 700;
+                    font-family: 'IBM Plex Serif', serif;
+                    font-weight: 400;
                     &:hover{
+                        transition: ease-in .2s;
                         text-decoration: none;
                         background: #263238;
                         color: white;
+                        transform: translateY(-3px);                                
+
+                        
                     }   
                 }
                 
@@ -177,6 +241,9 @@
                             text-decoration: none;
                             background: #263238;
                             color: white;
+                            transition: ease-in .3s;
+                            transform: translateY(-3px); 
+                            box-shadow:  3px 2px 2px #505b62, 
                         }                    
                     }
                 }
@@ -198,15 +265,7 @@
             display: flex;
             flex-direction: column;
             .posterPath{
-                height: 50%;
-                width: 100%;
-                max-width: 60%;
-                padding: 1rem;
-                max-height: 100%;
-                border-radius: 0.8rem;
-                box-shadow: 0rem 2rem 5rem rgb(64, 64, 70);
-                border: 1px solid rgb(104, 76, 76);
-                margin: auto;
+              
             }
             .movieInformation{
                 display: flex;

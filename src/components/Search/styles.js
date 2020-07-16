@@ -15,7 +15,6 @@ export default makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '5%',
   },
 
   input: {
@@ -28,9 +27,16 @@ export default makeStyles((theme) => ({
   },
   iconButton: {
     padding: 10,
+    outline: 'none !important',
   },
   divider: {
     height: 28,
     margin: 4,
+  },
+  field: {
+    backgroundColor: 'white',
+    borderRadius: 15,
+    height: '3%',
+    width: '20%',
   },
 }));

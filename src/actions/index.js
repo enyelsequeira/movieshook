@@ -29,15 +29,21 @@ export const fetchMoviesByCategory = (currentlySelected, page) => async (dispatc
 
   const { data } = await moviesAPI.get(`/movie/${currentlySelected}`, { params: { page } });
 
-  dispatch({ type: FETCH_MOVIES, payload: { currentlySelected, data } });
+  dispatch({ type: FETCH_MOVIES, payload: { currentlySelected, data, hasError: false } });
   dispatch({ type: END_LOADING });
 };
 
 export const getMoviesSearch = (query) => async (dispatch) => {
   dispatch({ type: START_LOADING });
-  const { data } = await moviesAPI.get('/search/movie', { params: { query } });
 
-  dispatch({ type: FETCH_MOVIES, payload: { query, data } });
+  try {
+    const { data } = await moviesAPI.get('/search/movie', { params: { query } });
+
+    dispatch({ type: FETCH_MOVIES, payload: { query, data } });
+  } catch (error) {
+    dispatch({ type: FETCH_MOVIES, payload: { query, data: [], hasError: true } });
+  }
+
   dispatch({ type: END_LOADING });
 };
 

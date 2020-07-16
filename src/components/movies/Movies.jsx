@@ -14,11 +14,11 @@ import styles from './Movies.module.scss';
 const Movies = () => {
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
-  const { data } = useSelector((state) => state.movies);
+  const { data, hasError } = useSelector((state) => state.movies);
   const isLoading = useSelector((state) => state.config.isLoading);
   const currentlySelected = useSelector((state) => state.currentlySelected);
   const movie = useSelector((state) => state.movie);
-
+  console.log(data);
   useEffect(() => {
     if (typeof currentlySelected === 'number') {
       dispatch(fetchMoviesByGenre(currentlySelected, page));
@@ -35,6 +35,15 @@ const Movies = () => {
     return (
       <div className={styles.loadingContainer}>
         <RingLoader size={150} color="#123abc" loading={isLoading} />
+      </div>
+    );
+  }
+
+  //
+  if (hasError) {
+    return (
+      <div className={styles.loadingContainer}>
+        Search for another Movie
       </div>
     );
   }
