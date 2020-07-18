@@ -135,7 +135,7 @@
                     }
                     .genreList{
                         align-items: center;
-                        height: 100%;
+                        height: auto;
                         grid-area: genreList;
                         display: flex;
                         text-align: left;
@@ -320,6 +320,7 @@
                         height: auto;
                         .genreList{
                             margin: 0;
+                            margin-bottom: 1em;
                             border: 1px solid red;
                         }
                     }
@@ -329,6 +330,10 @@
                             height: auto;
                         }
                     }
+                }
+                .buttons{
+                    border: 1px solid red;
+                    margin: 1em 0 1.5em 0;
                 }
             }
         }
