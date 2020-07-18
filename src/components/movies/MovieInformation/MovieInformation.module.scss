@@ -314,9 +314,14 @@
                 .movieMiddle{
                     margin-top: 10px;
                     border: 1px solid red;
+                    height: auto;
                     .genres{
                         margin: 0;
                         height: auto;
+                        .genreList{
+                            margin: 0;
+                            border: 1px solid red;
+                        }
                     }
                     .cast{
                         .castImage{
