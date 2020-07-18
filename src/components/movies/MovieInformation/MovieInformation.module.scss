@@ -313,6 +313,11 @@
                 }
                 .movieMiddle{
                     margin-top: 10px;
+                    border: 1px solid red;
+                    .genres{
+                        margin: 0;
+                        height: auto;
+                    }
                     .cast{
                         .castImage{
                             width: 3.1em;
