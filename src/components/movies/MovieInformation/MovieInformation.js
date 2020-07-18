@@ -9,14 +9,13 @@ import { FaImdb } from 'react-icons/fa';
 import { BsPlay } from 'react-icons/bs';
 import { FiLink } from 'react-icons/fi';
 import { RiSendPlaneLine } from 'react-icons/ri';
-import { selectGenre, selectCategory, getGenres } from '../../../actions';
+import Backdrop from '@material-ui/core/Backdrop';
+import { selectGenre } from '../../../actions';
 import styles from './MovieInformation.module.scss';
 
 function MovieInformation() {
-  const { movie, isLoading, error } = useSelector((state) => state.movie);
-  const { data } = useSelector((state) => state.movies);
+  const { movie } = useSelector((state) => state.movie);
   const loading = useSelector((state) => state.loading);
-  const genres = useSelector((state) => state.config.genres);
 
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
@@ -47,7 +46,7 @@ function MovieInformation() {
               <h2 className={styles.title}>{movie.title}</h2>
               <p className={styles.subtitle}>{movie.tagline}</p>
               <div className={styles.ratingSection}>
-                <StarRatings rating={movie.vote_average / 2} numberOfStars={5} starDimension="22px" starSpacing="4px" />
+                <StarRatings rating={movie.vote_average / 2} numberOfStars={5} starDimension="22px" starSpacing="2px" />
                 <span className={styles.votes}>{movie.vote_average}</span>
               </div>
               {/* make grayish and a bit bigger, add spaces between / */}
@@ -58,7 +57,7 @@ function MovieInformation() {
                 <h5 className={styles.genreTitle}>Genres:</h5>
                 <ul className={styles.genreList}>
                   {movie.genres.map((genre, i) => (
-                    <Link whileHover={{ scale: 1.1 }} className={styles.links} to="/" onClick={() => dispatch(selectGenre(genre.id, 1))} key={i}> {genre.name} <RiSendPlaneLine />  </Link>
+                    <Link className={styles.links} to="/" onClick={() => dispatch(selectGenre(genre.id, 1))} key={i}> {genre.name} <RiSendPlaneLine />  </Link>
                   ))}
                 </ul>
               </div>
@@ -75,10 +74,10 @@ function MovieInformation() {
                   ))}
                 </ul>
               </div> */}
-
               <div className={styles.cast}>
                 <h5 className={styles.castTitle}>Cast:</h5>
                 <ul className={styles.castList}>
+                  {console.log(movie.cast)}
                   {movie.cast.map((character, i) => (
                     <img key={i} className={styles.castImage} src={`https://image.tmdb.org/t/p/w500/${character.profile_path}`} alt={character.name} />
                   ))}
@@ -87,12 +86,12 @@ function MovieInformation() {
             </div>
             <div className={styles.buttons}>
               <div className={styles.left}>
-                <a className={styles.button} href={`https://www.imdb.com/title/${movie.imdb_id}`}> IMDB  <FaImdb className={styles.icon} /></a>
+                <a className={styles.button} target="_blank" rel="noopener noreferrer" href={`https://www.imdb.com/title/${movie.imdb_id}`}> IMDB  <FaImdb className={styles.icon} /></a>
                 <button type="button" className={styles.button} onClick={handleOpen}>
                   Trailer
                   <BsPlay className={styles.icon} />
                 </button>
-                <a className={styles.button} href={`${movie.homepage}`}>Website <FiLink className={styles.icon} /> </a>
+                <a className={styles.button} target="_blank" rel="noopener noreferrer" href={`${movie.homepage}`}>Website <FiLink className={styles.icon} /> </a>
               </div>
               <Link to="/">
                 <button type="button" className={styles.right}>Back</button>
@@ -100,13 +99,24 @@ function MovieInformation() {
             </div>
           </div>
         </div>
-        <Modal open={open} onClose={handleClose}>
+        <Modal
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+          BackdropProps={{
+            timeout: 900,
+          }}
+          className={styles.modalVideo}
+          open={open}
+          onClose={handleClose}
+        >
           {
             movie.videos.results
-              ? <iframe frameBorder="0" height="50%" width="70%" title="Video Player" src={`https://www.youtube.com/embed/${movie.videos.results[0].key}`} />
+              ? <iframe className={styles.video} frameBorder="0" title="Video Player" src={`https://www.youtube.com/embed/${movie.videos.results[0].key}`} />
               : null
           }
+
         </Modal>
+
       </div>
     ) : <Redirect to="/" />
   );

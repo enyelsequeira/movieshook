@@ -1,5 +1,5 @@
 import moviesAPI from '../api/moviesAPI';
-import { GET_GENRES, START_LOADING, END_LOADING, SELECT_GENRE, SELECT_CATEGORY, FETCH_MOVIES, FETCH_CREDITS, FETCH_MOVIE_DETAILS } from '../constants/actionTypes';
+import { GET_GENRES, START_LOADING, END_LOADING, SELECT_GENRE, SELECT_CATEGORY, FETCH_MOVIES } from '../constants/actionTypes';
 
 export const getGenres = () => async (dispatch) => {
   const { data } = await moviesAPI.get('/genre/movie/list');
@@ -58,7 +58,10 @@ export const getMovieDetails = ({ id }) => async (dispatch) => {
     dispatch({ type: 'FETCH_MOVIE_REQUEST' });
     const { data: movieDetails } = await moviesAPI.get(`/movie/${id}`, { params: { append_to_response: 'videos' } });
     const { data: { cast: castData } } = await moviesAPI.get(`/movie/${id}/credits`);
+    // const { t } = await moviesAPI.get(`/movie/${id}/person/credits/${id}`);
+    // const tmdb = t.slice(0, 6);
     const cast = castData.slice(0, 6);
+    // console.log(tmdb, 'comingfromaction');
     dispatch({ type: 'FETCH_MOVIE_SUCCESS', payload: { ...movieDetails, cast } });
   } catch (e) {
     dispatch({ type: 'FETCH_MOVIE_FAILURE', payload: { error: 'SOMETHING HAPPENED' } });

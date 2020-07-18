@@ -17,8 +17,8 @@ const Movies = () => {
   const { data, hasError } = useSelector((state) => state.movies);
   const isLoading = useSelector((state) => state.config.isLoading);
   const currentlySelected = useSelector((state) => state.currentlySelected);
-  const movie = useSelector((state) => state.movie);
-  console.log(data);
+  // const movie = useSelector((state) => state.movie);
+  // console.log(data);
   useEffect(() => {
     if (typeof currentlySelected === 'number') {
       dispatch(fetchMoviesByGenre(currentlySelected, page));
@@ -41,6 +41,7 @@ const Movies = () => {
 
   //
   if (hasError) {
+    setTimeout(() => { dispatch(fetchMoviesByCategory(currentlySelected, page)); }, 2000);
     return (
       <div className={styles.loadingContainer}>
         Search for another Movie

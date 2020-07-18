@@ -25,15 +25,16 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className={styles.image}>
-        <img className={styles.testing} src={Img} />
-      </div>
+      {/* onClick={() => dispatch(selectCategory(categories.value: 'popular'))} */}
+      <Link to="/" className={styles.image}>
+        <img className={styles.testing} src={Img} alt="logo" />
+      </Link>
       <Divider />
 
       <List>
         <ListSubheader>Categories</ListSubheader>
         {categories.map(({ label, value, icon }, i) => (
-          <Link className={styles.links} to="/">
+          <Link key={value} className={styles.links} to="/">
             <ListItem onClick={() => dispatch(selectCategory(value, 1))} button key={i}>
               <ListItemText>  {label} </ListItemText>
             </ListItem>
@@ -44,7 +45,7 @@ const Sidebar = () => {
       <List>
         <ListSubheader>Genres</ListSubheader>
         {genres ? genres.map(({ name, id }) => (
-          <Link className={styles.links} to="/">
+          <Link key={name} className={styles.links} to="/">
             <ListItem onClick={() => dispatch(selectGenre(id, 1))} button key={id}>
               <ListItemText primary={name} />
               {/* <AiTwotoneEye /> */}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Grid } from '@material-ui/core';
+// import { Grid } from '@material-ui/core';
 import StarRatings from 'react-star-ratings';
 import { Link } from 'react-router-dom';
 

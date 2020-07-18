@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { AppBar, CssBaseline, IconButton, Drawer, Hidden, Toolbar } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
-import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-import moviesAPI from '../api/moviesAPI';
+// import moviesAPI from '../api/moviesAPI';
 import { Search, Movies, Sidebar } from '.';
 import MovieInfo from './Movies/MovieInformation/MovieInformation';
 

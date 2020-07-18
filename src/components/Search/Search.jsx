@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Paper from '@material-ui/core/Paper';
-import TextField from '@material-ui/core/TextField';
 import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
@@ -48,22 +47,6 @@ const Search = () => {
 export default Search;
 
 // <div className={styles.searchBox}>
-
-{ /* <input
-        className={styles.searchInput}
-        type="text"
-        name=""
-        placeholder="Search"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        onKeyPress={onKeyPress}
-      />
-      <Link to="/">
-        <button onClick={() => dispatch(getMoviesSearch(query))} className={styles.searchButton} href="#" type="button">
-          <BsSearch />
-        </button>
-      </Link> */ }
-// </div>
 
 // <div className={classes.searchContainer}>
 //   <input
