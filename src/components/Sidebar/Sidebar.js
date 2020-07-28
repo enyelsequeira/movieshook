@@ -8,6 +8,7 @@ import { BsGraphUp } from 'react-icons/bs';
 import { selectGenre, selectCategory, getGenres } from '../../actions';
 import styles from './Sidebar.module.scss';
 import Img from '../../Img/cinemas.svg';
+import useStyles from './styles';
 
 const categories = [
   { label: 'Popular', value: 'popular', icon: <AiTwotoneLike /> },
@@ -22,19 +23,20 @@ const Sidebar = () => {
   useEffect(() => {
     dispatch(getGenres());
   }, []);
+  const classes = useStyles();
 
   return (
     <>
       {/* onClick={() => dispatch(selectCategory(categories.value: 'popular'))} */}
-      <Link to="/" className={styles.image}>
-        <img className={styles.testing} src={Img} alt="logo" />
+      <Link to="/" className={classes.image}>
+        <img className={classes.testing} src={Img} alt="logo" />
       </Link>
       <Divider />
 
       <List>
         <ListSubheader>Categories</ListSubheader>
         {categories.map(({ label, value, icon }, i) => (
-          <Link key={value} className={styles.links} to="/">
+          <Link key={value} className={classes.links} to="/">
             <ListItem onClick={() => dispatch(selectCategory(value, 1))} button key={i}>
               <ListItemText>  {label} </ListItemText>
             </ListItem>
@@ -45,7 +47,7 @@ const Sidebar = () => {
       <List>
         <ListSubheader>Genres</ListSubheader>
         {genres ? genres.map(({ name, id }) => (
-          <Link key={name} className={styles.links} to="/">
+          <Link key={name} className={classes.links} to="/">
             <ListItem onClick={() => dispatch(selectGenre(id, 1))} button key={id}>
               <ListItemText primary={name} />
               {/* <AiTwotoneEye /> */}

@@ -1,60 +1,79 @@
 import React, { useState } from 'react';
-import { AppBar, CssBaseline, IconButton, Drawer, Hidden, Toolbar } from '@material-ui/core';
-import { useTheme } from '@material-ui/core/styles';
+import { AppBar, CssBaseline, IconButton, Drawer, Hidden, Toolbar, Switch as MuiSwitch } from '@material-ui/core';
+// import { useTheme } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-// import moviesAPI from '../api/moviesAPI';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+// import { white } from '@material-ui/core/colors';
 import { Search, Movies, Sidebar } from '.';
 import MovieInfo from './Movies/MovieInformation/MovieInformation';
-
 import useStyles from './AppStyles';
+// import dark from '@material-ui/core/colors/dark';
 
 const App = ({ container }) => {
-  const classes = useStyles();
-  const theme = useTheme();
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const classes = useStyles();
+
+  const theme = React.useMemo(
+    () => createMuiTheme({
+      palette: {
+        type: isDarkMode ? 'dark' : 'light',
+        contrastThreshold: 0.2,
+        tonalOffset: 1,
+        background: {
+          default: isDarkMode ? '#242526' : '#FFFFFF',
+        },
+      },
+    }),
+    [isDarkMode],
+  );
 
   return (
     <BrowserRouter>
-      <div className={classes.root}>
-        <CssBaseline />
-        <AppBar position="fixed" className={classes.appBar}>
-          <Toolbar>
-            <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={() => setMobileOpen(!mobileOpen)} className={classes.menuButton}>
-              <MenuIcon />
-            </IconButton>
-            <Search />
-          </Toolbar>
-        </AppBar>
-        <nav className={classes.drawer} aria-label="mailbox folders">
-          <Hidden smUp implementation="css">
-            <Drawer container={container} variant="temporary" anchor={theme.direction === 'rtl' ? 'right' : 'left'} open={mobileOpen} onClose={() => setMobileOpen(!mobileOpen)} classes={{ paper: classes.drawerPaper }} ModalProps={{ keepMounted: true }}>
-              {/* <div className={classes.toolbar} /> */}
-              <Sidebar />
-            </Drawer>
-          </Hidden>
-          <Hidden xsDown implementation="css">
-            <Drawer classes={{ paper: classes.drawerPaper }} variant="permanent" open>
-              {/* <div className={classes.toolbar} /> */}
-              <Sidebar />
-            </Drawer>
-          </Hidden>
-        </nav>
-        <main className={classes.content}>
-          <div className={classes.toolbar} />
-          <AnimatePresence>
-            <Switch>
-              <Route exact path="/movie">
-                <MovieInfo />
-              </Route>
-              <Route exact path="/">
-                <Movies />
-              </Route>
-            </Switch>
-          </AnimatePresence>
-        </main>
-      </div>
+      <ThemeProvider theme={theme}>
+        <div className={classes.root}>
+          <CssBaseline />
+          <AppBar position="fixed" className={classes.appBar}>
+            <Toolbar>
+              <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={() => setMobileOpen(!mobileOpen)} className={classes.menuButton}>
+                <MenuIcon />
+              </IconButton>
+              <Search />
+              <MuiSwitch checked={isDarkMode} onChange={() => setIsDarkMode(!isDarkMode)} />
+            </Toolbar>
+          </AppBar>
+          <nav className={classes.drawer} aria-label="mailbox folders">
+            <Hidden smUp implementation="css">
+              <Drawer container={container} variant="temporary" anchor={theme.direction === 'rtl' ? 'right' : 'left'} open={mobileOpen} onClose={() => setMobileOpen(!mobileOpen)} classes={{ paper: classes.drawerPaper }} ModalProps={{ keepMounted: true }}>
+                {/* <div className={classes.toolbar} /> */}
+                <Sidebar />
+              </Drawer>
+            </Hidden>
+            <Hidden xsDown implementation="css">
+              <Drawer classes={{ paper: classes.drawerPaper }} variant="permanent" open>
+                {/* <div className={classes.toolbar} /> */}
+                <Sidebar />
+              </Drawer>
+            </Hidden>
+          </nav>
+          <main className={classes.content}>
+            <div className={classes.toolbar} />
+            <AnimatePresence>
+              <Switch>
+                <Route exact path="/movie">
+                  <MovieInfo />
+                </Route>
+                <Route exact path="/">
+                  <Movies />
+                </Route>
+              </Switch>
+            </AnimatePresence>
+          </main>
+        </div>
+      </ThemeProvider>
     </BrowserRouter>
   );
 };

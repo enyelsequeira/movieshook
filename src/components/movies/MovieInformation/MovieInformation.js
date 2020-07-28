@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 import RingLoader from 'react-spinners/RingLoader';
-import Modal from '@material-ui/core/Modal';
+import { Modal, Typography } from '@material-ui/core';
 
 import StarRatings from 'react-star-ratings';
 import { FaImdb } from 'react-icons/fa';
@@ -12,10 +12,12 @@ import { RiSendPlaneLine } from 'react-icons/ri';
 import Backdrop from '@material-ui/core/Backdrop';
 import { selectGenre } from '../../../actions';
 import styles from './MovieInformation.module.scss';
+// import useStyles from './styles';
 
 function MovieInformation() {
   const { movie } = useSelector((state) => state.movie);
   const loading = useSelector((state) => state.loading);
+  // const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
@@ -57,7 +59,7 @@ function MovieInformation() {
                 <h5 className={styles.genreTitle}>Genres:</h5>
                 <ul className={styles.genreList}>
                   {movie.genres.map((genre, i) => (
-                    <Link className={styles.links} to="/" onClick={() => dispatch(selectGenre(genre.id, 1))} key={i}> {genre.name} <RiSendPlaneLine />  </Link>
+                    <Link className={styles.links} to="/" onClick={() => dispatch(selectGenre(genre.id, 1))} key={i}><Typography>{genre.name}</Typography><RiSendPlaneLine /></Link>
                   ))}
                 </ul>
               </div>
