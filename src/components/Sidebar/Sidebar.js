@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom';
 import { AiTwotoneEye, AiFillNotification, AiTwotoneLike } from 'react-icons/ai';
 import { MdFavorite } from 'react-icons/md';
 import { BsGraphUp } from 'react-icons/bs';
+import { useTheme } from '@material-ui/core/styles';
 import { selectGenre, selectCategory, getGenres } from '../../actions';
 import styles from './Sidebar.module.scss';
 import Img from '../../Img/cinemas.svg';
+import ImgNight from '../../Img/nightmode.svg';
 import useStyles from './styles';
 
 const categories = [
@@ -24,13 +26,24 @@ const Sidebar = () => {
     dispatch(getGenres());
   }, []);
   const classes = useStyles();
+  const theme = useTheme();
+
+  const isDarkMode = theme.palette.type === 'dark';
 
   return (
     <>
+      {isDarkMode ? (
+        <Link to="/" className={classes.image}>
+          <img className={classes.testing} src={ImgNight} alt="logo" />
+        </Link>
+
+      ) : (
+        <Link to="/" className={classes.image}>
+          <img className={classes.testing} src={Img} alt="logo" />
+        </Link>
+      ) }
       {/* onClick={() => dispatch(selectCategory(categories.value: 'popular'))} */}
-      <Link to="/" className={classes.image}>
-        <img className={classes.testing} src={Img} alt="logo" />
-      </Link>
+
       <Divider />
 
       <List>
