@@ -12,12 +12,10 @@ import { RiSendPlaneLine } from 'react-icons/ri';
 import Backdrop from '@material-ui/core/Backdrop';
 import { selectGenre } from '../../../actions';
 import styles from './MovieInformation.module.scss';
-// import useStyles from './styles';
 
 function MovieInformation() {
   const { movie } = useSelector((state) => state.movie);
   const loading = useSelector((state) => state.loading);
-  // const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
@@ -59,7 +57,7 @@ function MovieInformation() {
                 <h5 className={styles.genreTitle}>Genres:</h5>
                 <ul className={styles.genreList}>
                   {movie.genres.map((genre, i) => (
-                    <Link className={styles.links} to="/" onClick={() => dispatch(selectGenre(genre.id, 1))} key={i}><Typography>{genre.name}</Typography><RiSendPlaneLine /></Link>
+                    <Link className={styles.links} to="/" onClick={() => dispatch(selectGenre(genre.id, 1))} key={i}><Typography color="textPrimary" variant="caption">{genre.name} <RiSendPlaneLine /></Typography></Link>
                   ))}
                 </ul>
               </div>

@@ -1,15 +1,22 @@
-add a placeholder image for the movies that don't have image // search ad astra
-when opening the movie, make the loader in the center (currently its on top left)
-
-//  when loading /movie immidiately it gives an error (should be handled)
 
 movie info
-- make actor images clickable (redirect to their imdb page)
+- make actor images clickable (redirect to their imdb page) (optional)
 - make placeholder image if actor doesent have image
-
-- crazy movie clicking gives error
+- crazy movie clicking gives error (optional)
 - top rated error in diwalee movie cannot read property key of undefined
 -- search for netflix and click netflix acquires error Cannot read property 'name' of undefined
--- image logo should redirect to popular? 
+-- image logo should redirect to popular?
 
-Recommended movies + dark mode
+add a placeholder image for the movies that don't have image // search ad astra
+
+scroll to the top once you go to the next page
+on mobile once you open a movie its zoomed in.
+change on hover text sidebar when dark mode /// DONE
+just a bit of horizontal padding search bar //DONE
+put the moon and sun icon //DONE
+search bar, padding height, spacing // DONE
+
+lamp guy on dark mode
+
+
+Recommended movies

@@ -2,12 +2,19 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
   root: {
-    padding: '2px 4px',
     display: 'flex',
     alignItems: 'center',
     margin: 'auto',
+    padding: '0 5px',
     width: 400,
     borderRadius: '15px',
+    [theme.breakpoints.down('xs')]: {
+      height: 25,
+      marginRight: '5px',
+    },
+    [theme.breakpoints.down('sm')]: {
+      marginRight: '5px',
+    },
   },
 
   searchContainer: {
@@ -15,6 +22,7 @@ export default makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+
   },
 
   input: {
@@ -32,11 +40,13 @@ export default makeStyles((theme) => ({
   divider: {
     height: 28,
     margin: 4,
+
   },
   field: {
     backgroundColor: 'white',
     borderRadius: 15,
     height: '3%',
     width: '20%',
+
   },
 }));

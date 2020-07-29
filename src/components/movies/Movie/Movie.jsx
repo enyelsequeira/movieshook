@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 import { motion } from 'framer-motion';
 import { Typography, CssBaseline } from '@material-ui/core';
-import styles from './Movie.module.scss';
+import { useTheme } from '@material-ui/core/styles';
 import useStyles from './styles';
 
 const containerVariants = {
@@ -25,13 +25,17 @@ const containerVariants = {
 
 const Movie = ({ movie, i, handleOpen }) => {
   const classes = useStyles();
+  const theme = useTheme();
+
+  const isDarkMode = theme.palette.type === 'dark';
+
   return (
     <motion.div variants={containerVariants} initial="hidden" animate="visible" exit="exit" item xs={12} sm={6} md={4} lg={4} spacing={4} onClick={() => handleOpen(movie)} className={classes.movie} key={i}>
       <CssBaseline />
       <Link className={classes.links} to="/movie">
         <img alt={movie.title} className={classes.image} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
-        <Typography className={classes.tittle} variant="h5" color="secondary">{movie.title}</Typography>
-        <StarRatings rating={movie.vote_average / 2} numberOfStars={5} starDimension="20px" starSpacing="2px" className={styles.ratings} />
+        <Typography className={classes.tittle} variant="h5">{movie.title}</Typography>
+        <StarRatings starRatedColor={isDarkMode ? '#CBD3E3' : '#6D7A82'} starEmptyColor={!isDarkMode ? '#CBD3E3' : '#6D7A82'} rating={movie.vote_average / 2} numberOfStars={5} starDimension="20px" starSpacing="2px" />
       </Link>
     </motion.div>
   );

@@ -11,7 +11,6 @@ export default makeStyles((theme) => ({
     marginBottom: 0,
     textAlign: 'center',
   },
-
   movie: {
     padding: '10px 10px',
     display: 'flex',
@@ -20,12 +19,16 @@ export default makeStyles((theme) => ({
   image: {
     borderRadius: '20px',
     height: '300px',
+    '&:hover': {
+      cursor: 'pointer',
+      transform: 'scale(1.05)',
+    },
   },
   links: {
     fontWeight: 'bolder',
-    onHover: {
+    '&:hover': {
+      cursor: 'pointer',
       textDecoration: 'none',
     },
-
   },
 }));

@@ -3,12 +3,13 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles((theme) => ({
   links: {
     color: theme.palette.type === 'dark' ? 'white' : 'black',
+
+    '&:hover': {
+      textDecoration: 'none',
+      color: theme.palette.type === 'dark' ? 'white' : 'black',
+    },
   },
 
-  // links:hover{
-  //     text-decoration:none;
-  //     color: black;
-  // }
   image: {
     display: 'flex',
     justifyContent: 'center',

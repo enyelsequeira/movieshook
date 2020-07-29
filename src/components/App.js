@@ -5,11 +5,11 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-// import { white } from '@material-ui/core/colors';
+import { BsMoon } from 'react-icons/bs';
+import { FaSun } from 'react-icons/fa';
 import { Search, Movies, Sidebar } from '.';
-import MovieInfo from './Movies/MovieInformation/MovieInformation';
+import MovieInfo from './Movies/MovieInformation/MovieInformation.js';
 import useStyles from './AppStyles';
-// import dark from '@material-ui/core/colors/dark';
 
 const App = ({ container }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -41,8 +41,12 @@ const App = ({ container }) => {
               <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={() => setMobileOpen(!mobileOpen)} className={classes.menuButton}>
                 <MenuIcon />
               </IconButton>
+
               <Search />
-              <MuiSwitch checked={isDarkMode} onChange={() => setIsDarkMode(!isDarkMode)} />
+              <FaSun />
+
+              <MuiSwitch size="small" color="default" checked={isDarkMode} onChange={() => setIsDarkMode(!isDarkMode)} />
+              <BsMoon />
             </Toolbar>
           </AppBar>
           <nav className={classes.drawer} aria-label="mailbox folders">
