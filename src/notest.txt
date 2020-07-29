@@ -16,7 +16,9 @@ just a bit of horizontal padding search bar //DONE
 put the moon and sun icon //DONE
 search bar, padding height, spacing // DONE
 
+/// 
 lamp guy on dark mode
+use a if statement with the image
 
 
 Recommended movies

@@ -7,8 +7,8 @@ import { AnimatePresence } from 'framer-motion';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { BsMoon } from 'react-icons/bs';
 import { FaSun } from 'react-icons/fa';
-import { Search, Movies, Sidebar } from '.';
-import MovieInfo from './Movies/MovieInformation/MovieInformation.js';
+import { Search, Movies, Sidebar, MovieInfo } from '.';
+// import MovieInfo from './Movies/MovieInformation/MovieInformation.js';
 import useStyles from './AppStyles';
 
 const App = ({ container }) => {
