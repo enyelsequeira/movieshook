@@ -5,6 +5,7 @@ import { Grid } from '@material-ui/core';
 import RingLoader from 'react-spinners/RingLoader';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { useTheme } from '@material-ui/core/styles';
 import Pagination from './Pagination/Pagination';
 import Movie from './Movie/Movie';
 import { fetchMoviesByGenre, fetchMoviesByCategory, getMovieDetails } from '../../actions';
@@ -17,6 +18,7 @@ const Movies = () => {
   const { data, hasError } = useSelector((state) => state.movies);
   const isLoading = useSelector((state) => state.config.isLoading);
   const currentlySelected = useSelector((state) => state.currentlySelected);
+  const theme = useTheme();
   // const movie = useSelector((state) => state.movie);
   // console.log(data);
   useEffect(() => {
@@ -25,16 +27,24 @@ const Movies = () => {
     } else {
       dispatch(fetchMoviesByCategory(currentlySelected, page));
     }
+
+    window.scroll({ top: 0, behavior: 'smooth' });
   }, [page, currentlySelected]);
+
+  // React.useEffect(() => {
+  //   window.scroll(0, 0);
+  // }, []);
 
   const handleOpen = (movie) => {
     dispatch(getMovieDetails(movie));
   };
 
+  const isDarkMode = theme.palette.type === 'dark';
+
   if (isLoading) {
     return (
       <div className={styles.loadingContainer}>
-        <RingLoader size={150} color="#123abc" loading={isLoading} />
+        <RingLoader size={150} color={!isDarkMode ? '#123abc' : '#FFF'} loading={isLoading} />
       </div>
     );
   }

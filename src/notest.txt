@@ -1,24 +1,13 @@
+Must fix
+On mobile once you open a movie its zoomed in.
+Search for netflix and click netflix acquires - error Cannot read property 'name' of undefined
+Top rated error in diwalee movie cannot read property key of undefined
+Get rid of all the comments in the code and all the warnings
 
-movie info
-- make actor images clickable (redirect to their imdb page) (optional)
-- make placeholder image if actor doesent have image
-- crazy movie clicking gives error (optional)
-- top rated error in diwalee movie cannot read property key of undefined
--- search for netflix and click netflix acquires error Cannot read property 'name' of undefined
--- image logo should redirect to popular?
-
-add a placeholder image for the movies that don't have image // search ad astra
-
-scroll to the top once you go to the next page
-on mobile once you open a movie its zoomed in.
-change on hover text sidebar when dark mode /// DONE
-just a bit of horizontal padding search bar //DONE
-put the moon and sun icon //DONE
-search bar, padding height, spacing // DONE
-
-/// 
-lamp guy on dark mode
-use a if statement with the image
-
-
+Optional:
+There's empty space in the middle of the movies on uneven number on mobile 
 Recommended movies
+Make actor images clickable - Redirect to their IMDB page
+Crazy movie clicking gives error
+
+Potential bug with search

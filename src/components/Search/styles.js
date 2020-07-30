@@ -9,14 +9,26 @@ export default makeStyles((theme) => ({
     width: 400,
     borderRadius: '15px',
     [theme.breakpoints.down('xs')]: {
-      height: 25,
-      marginRight: '5px',
+      // height: 25,
+      // marginRight: '5px',
+      width: 180,
+      marginRight: 35,
+      height: 40,
     },
     [theme.breakpoints.down('sm')]: {
-      marginRight: '5px',
+      // marginRight: '5px',
+      width: 180,
+      marginRight: 35,
+      height: 40,
+    },
+    [theme.breakpoints.only('md')]: {
+      // marginRight: '5px',
+      width: 250,
+      marginRight: 'auto',
+      marginLeft: '10px',
+      height: 40,
     },
   },
-
   searchContainer: {
     width: '100%',
     display: 'flex',

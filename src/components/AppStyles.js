@@ -8,6 +8,10 @@ export default makeStyles((theme) => ({
     display: 'flex',
     height: '100%',
   },
+  toolbar: {
+    height: '80px',
+    ...theme.mixins.toolbar,
+  },
   drawer: {
     [theme.breakpoints.up('sm')]: {
       width: drawerWidth,
@@ -28,8 +32,6 @@ export default makeStyles((theme) => ({
       display: 'none',
     },
   },
-  // necessary for content to be below app bar
-  toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
   },

@@ -10,11 +10,14 @@ import { BsPlay } from 'react-icons/bs';
 import { FiLink } from 'react-icons/fi';
 import { RiSendPlaneLine } from 'react-icons/ri';
 import Backdrop from '@material-ui/core/Backdrop';
+import { useTheme } from '@material-ui/core/styles';
 import { selectGenre } from '../../../actions';
 import styles from './MovieInformation.module.scss';
 
 function MovieInformation() {
+  const theme = useTheme();
   const { movie } = useSelector((state) => state.movie);
+  const isDarkMode = theme.palette.type === 'dark';
   const loading = useSelector((state) => state.loading);
 
   const [open, setOpen] = React.useState(false);
@@ -31,7 +34,7 @@ function MovieInformation() {
   if (loading) {
     return (
       <div className={styles.loadingContainer}>
-        <RingLoader size={150} color="#123abc" loading />
+        <RingLoader size={150} color={!isDarkMode ? '#123abc' : '#FFF'} loading />
       </div>
     );
   }
@@ -66,20 +69,12 @@ function MovieInformation() {
                 <p className={styles.textSummary}>{movie.overview}</p>
               </div>
 
-              {/* <div className={styles.languages}>
-                <h5 className={styles.langTitle}>Languages</h5>
-                <ul className={styles.genreList}>
-                  {movie.spoken_languages.map((lan, i) => (
-                    <p className={styles.lang} key={i}>{lan.name}</p>
-                  ))}
-                </ul>
-              </div> */}
               <div className={styles.cast}>
                 <h5 className={styles.castTitle}>Cast:</h5>
                 <ul className={styles.castList}>
-                  {console.log(movie.cast)}
                   {movie.cast.map((character, i) => (
-                    <img key={i} className={styles.castImage} src={`https://image.tmdb.org/t/p/w500/${character.profile_path}`} alt={character.name} />
+                    character.profile_path ? <img key={i} className={styles.castImage} src={`https://image.tmdb.org/t/p/w500/${character.profile_path}`} alt={character.name} /> : <img alt={movie.title} className={styles.castImage} src="https://www.fillmurray.com/200/300" />
+
                   ))}
                 </ul>
               </div>

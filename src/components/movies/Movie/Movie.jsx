@@ -33,7 +33,7 @@ const Movie = ({ movie, i, handleOpen }) => {
     <motion.div variants={containerVariants} initial="hidden" animate="visible" exit="exit" item xs={12} sm={6} md={4} lg={4} spacing={4} onClick={() => handleOpen(movie)} className={classes.movie} key={i}>
       <CssBaseline />
       <Link className={classes.links} to="/movie">
-        <img alt={movie.title} className={classes.image} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
+        {movie.poster_path ? <img alt={movie.title} className={classes.image} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} /> : <img alt={movie.title} className={classes.image} src="https://www.fillmurray.com/200/300" />}
         <Typography className={classes.tittle} variant="h5">{movie.title}</Typography>
         <StarRatings starRatedColor={isDarkMode ? '#CBD3E3' : '#6D7A82'} starEmptyColor={!isDarkMode ? '#CBD3E3' : '#6D7A82'} rating={movie.vote_average / 2} numberOfStars={5} starDimension="20px" starSpacing="2px" />
       </Link>
