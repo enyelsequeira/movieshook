@@ -88,7 +88,7 @@ function MovieInformation() {
                 </button>
                 <a className={styles.button} target="_blank" rel="noopener noreferrer" href={`${movie.homepage}`}>Website <FiLink className={styles.icon} /> </a>
               </div>
-              <Link to="/">
+              <Link style={{ textDecoration: 'none' }} to="/">
                 <button type="button" className={styles.right}>Back</button>
               </Link>
             </div>
@@ -106,7 +106,7 @@ function MovieInformation() {
         >
           {
             movie.videos.results
-              ? <iframe className={styles.video} frameBorder="0" title="Video Player" src={`https://www.youtube.com/embed/${movie.videos.results[0].key}`} />
+              ? <iframe autoPlay className={styles.video} frameBorder="0" title="Video Player" src={`https://www.youtube.com/embed/${movie.videos.results[0].key}`} allow="autoplay" />
               : null
           }
 

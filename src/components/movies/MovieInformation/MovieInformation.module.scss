@@ -201,6 +201,7 @@
             .buttons{
                 display: flex;
                 justify-content: space-between;
+                text-decoration: none;
              
                 .right{
                     display: flex;
@@ -216,6 +217,7 @@
                     &:hover{
                         transition: ease-in .2s;
                         text-decoration: none;
+
                         background: #263238;
                         color: white;
                         transform: translateY(-3px);                                
