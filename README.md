@@ -3,12 +3,12 @@
 ## Overview
 * This is an updated and better version of my movie app, where I only had 10 personal movies, This app fetches data from the TMDB API to show information about movies. This App also uses another Api that allows the user to send voice command to the app and the app will do it. 
 
-### Question/Commands you can ask the app and will give you an answer
+### Question/Commands you can ask the app and the app will give you an answer or action.
 
 1. What does this app do?
-2. Give the command go to "pick a genre/category"
-3. Give the command "Change Mode" 
-4. More command and functionalities to come  
+2. Give the command [go to] "pick a genre/category"
+3. Give the command "Change screen Mode" 
+4. More command and functionalities to come... 
 
 ### Prerequisites
 * You need to create an account and get an API key in the MovieDatabase Api [Follow the link -> ](https://developers.themoviedb.org/3)
