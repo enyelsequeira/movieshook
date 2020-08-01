@@ -11,6 +11,12 @@
 * It allows the user to click on a specific Genre and the app fetches movies according to that Genre. 
 * Once the user clicks on a specific movie, the app will display information about the movie, from reviews to the cast. And according to the specific movie clicked the User will be able to see recommended movies that are similar to the clicked one. 
 
+### Images
+![Image](/Img/cinema.png)
+
+
+
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
 ### Technologies
 * To build this app latest technologies were used, using React hooks and Redux for state management. As for Css this app uses Material UI for some parts, and the most using css grid/flex. 
 
