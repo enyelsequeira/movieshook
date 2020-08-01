@@ -12,7 +12,7 @@
 * Once the user clicks on a specific movie, the app will display information about the movie, from reviews to the cast. And according to the specific movie clicked the User will be able to see recommended movies that are similar to the clicked one. 
 
 ### Images
-![Image](/Img/cinema.png)
+![Image](src/Img/cinema.png)
 
 
 
