@@ -33,9 +33,10 @@ const Search = () => {
         onChange={(e) => setQuery(e.target.value)}
         onKeyPress={onKeyPress}
       />
+
       <Link to="/">
-        <IconButton type="submit" className={classes.iconButton} aria-label="search">
-          <SearchIcon onClick={() => dispatch(getMoviesSearch(query))} />
+        <IconButton type="submit" onClick={() => dispatch(getMoviesSearch(query))} className={classes.iconButton}>
+          <SearchIcon />
         </IconButton>
       </Link>
 

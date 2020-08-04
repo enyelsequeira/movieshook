@@ -1,7 +1,9 @@
-import { GET_GENRES, SELECT_GENRE, START_LOADING, END_LOADING } from '../constants/actionTypes';
+import { GET_GENRES, SELECT_GENRE, START_LOADING, END_LOADING, TOGGLE_MODE } from '../constants/actionTypes';
 
-export default (state = { isLoading: true }, action) => {
+export default (state = { isDarkMode: false, isLoading: true }, action) => {
   switch (action.type) {
+    case TOGGLE_MODE:
+      return { ...state, isDarkMode: !state.isDarkMode };
     case GET_GENRES:
       return { ...state, ...action.payload };
     case SELECT_GENRE:

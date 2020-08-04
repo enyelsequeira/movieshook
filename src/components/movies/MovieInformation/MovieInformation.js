@@ -52,8 +52,7 @@ function MovieInformation() {
                 <StarRatings rating={movie.vote_average / 2} numberOfStars={5} starDimension="22px" starSpacing="2px" />
                 <span className={styles.votes}>{movie.vote_average}</span>
               </div>
-              {/* make grayish and a bit bigger, add spaces between / */}
-              <p className={styles.runtime}>{movie.runtime}mins / <span>{movie.release_date}</span> / <span>{movie.spoken_languages[0].name}</span></p>
+              <p className={styles.runtime}>{movie.runtime}mins / <span>{movie.release_date}</span> <span>{movie.spoken_languages.length > 0 ? `/ ${movie.spoken_languages[0].name}` : null}</span></p>
             </div>
             <div className={styles.movieMiddle}>
               <div className={styles.genres}>
@@ -82,10 +81,14 @@ function MovieInformation() {
             <div className={styles.buttons}>
               <div className={styles.left}>
                 <a className={styles.button} target="_blank" rel="noopener noreferrer" href={`https://www.imdb.com/title/${movie.imdb_id}`}> IMDB  <FaImdb className={styles.icon} /></a>
-                <button type="button" className={styles.button} onClick={handleOpen}>
-                  Trailer
-                  <BsPlay className={styles.icon} />
-                </button>
+                {movie.videos.results.length > 0
+                  ? (
+                    <button type="button" className={styles.button} onClick={handleOpen}>
+                      Trailer
+                      <BsPlay className={styles.icon} />
+                    </button>
+                  )
+                  : null}
                 <a className={styles.button} target="_blank" rel="noopener noreferrer" href={`${movie.homepage}`}>Website <FiLink className={styles.icon} /> </a>
               </div>
               <Link style={{ textDecoration: 'none' }} to="/">
@@ -105,7 +108,7 @@ function MovieInformation() {
           onClose={handleClose}
         >
           {
-            movie.videos.results
+            movie.videos.results.length > 0
               ? <iframe autoPlay className={styles.video} frameBorder="0" title="Video Player" src={`https://www.youtube.com/embed/${movie.videos.results[0].key}`} allow="autoplay" />
               : null
           }

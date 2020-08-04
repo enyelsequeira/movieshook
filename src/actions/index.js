@@ -1,5 +1,5 @@
 import moviesAPI from '../api/moviesAPI';
-import { GET_GENRES, START_LOADING, END_LOADING, SELECT_GENRE, SELECT_CATEGORY, FETCH_MOVIES } from '../constants/actionTypes';
+import { GET_GENRES, START_LOADING, END_LOADING, SELECT_GENRE, SELECT_CATEGORY, FETCH_MOVIES, TOGGLE_MODE } from '../constants/actionTypes';
 
 export const getGenres = () => async (dispatch) => {
   const { data } = await moviesAPI.get('/genre/movie/list');
@@ -13,6 +13,10 @@ export const selectGenre = (genreId) => async (dispatch) => {
 
 export const selectCategory = (name) => async (dispatch) => {
   dispatch({ type: SELECT_CATEGORY, payload: name });
+};
+
+export const toggleMode = () => async (dispatch) => {
+  dispatch({ type: TOGGLE_MODE });
 };
 
 export const fetchMoviesByGenre = (currentlySelected, page) => async (dispatch) => {

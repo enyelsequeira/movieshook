@@ -32,20 +32,10 @@ const Sidebar = () => {
 
   return (
     <>
-      {isDarkMode ? (
-        <Link to="/" className={classes.image}>
-          <img className={classes.testing} src={ImgNight} alt="logo" />
-        </Link>
-
-      ) : (
-        <Link to="/" className={classes.image}>
-          <img className={classes.testing} src={Img} alt="logo" />
-        </Link>
-      ) }
-      {/* onClick={() => dispatch(selectCategory(categories.value: 'popular'))} */}
-
+      <Link to="/" className={classes.image}>
+        <img className={classes.testing} src={isDarkMode ? ImgNight : Img} alt="logo" />
+      </Link>
       <Divider />
-
       <List>
         <ListSubheader>Categories</ListSubheader>
         {categories.map(({ label, value, icon }, i) => (

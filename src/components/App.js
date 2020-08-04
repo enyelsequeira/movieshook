@@ -7,48 +7,23 @@ import { AnimatePresence } from 'framer-motion';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { BsMoon } from 'react-icons/bs';
 import { FaSun } from 'react-icons/fa';
-import alanBtn from '@alan-ai/alan-sdk-web';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Search, Movies, Sidebar, MovieInfo } from '.';
 // import MovieInfo from './Movies/MovieInformation/MovieInformation.js';
 import useStyles from './AppStyles';
-import { selectGenre, selectCategory } from '../actions';
+import { toggleMode } from '../actions';
+
+import Alan from './Alan.js';
 
 const App = ({ container }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  // const [isDarkMode, setIsDarkMode] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  // const [page, setPage] = useState(1);
-
+  const { isDarkMode } = useSelector((state) => state.config);
   const dispatch = useDispatch();
 
-  // const stringifiedGenres2 = genres.map(({ name }) => name).join("|");
+  console.log(isDarkMode);
 
-  useEffect(() => {
-    alanBtn({
-      key: '2b4d51c596098c03255747fce375bd5a2e956eca572e1d8b807a3e2338fdd0dc/stage',
-      onCommand: ({ command, genre, genres }) => {
-        if (command === 'chooseGenre') {
-          const foundGenre = genres.find((gen) => gen.name.toLowerCase() === genre.toLowerCase());
-
-          if (foundGenre) {
-            dispatch(selectGenre(foundGenre.id, 1));
-          } else if (genre) {
-            const parsedGenre = genre.startsWith('top') ? 'top_rated' : genre;
-
-            dispatch(selectCategory(parsedGenre, 1));
-          } else {
-            alanBtn().playText('Try that again.');
-          }
-        } else if (command === 'changeMode') {
-          setIsDarkMode((prevIsDarkMode) => !prevIsDarkMode);
-        } else if (command === 'go to next page') {
-          // page = 1;
-          // setPage(((prevCurrentPage) => prevCurrentPage + 1));
-          console.log(1);
-        }
-      },
-    });
-  }, []);
+  // const [page, setPage] = useState(1);
 
   const classes = useStyles();
 
@@ -56,8 +31,6 @@ const App = ({ container }) => {
     () => createMuiTheme({
       palette: {
         type: isDarkMode ? 'dark' : 'light',
-        contrastThreshold: 0.2,
-        tonalOffset: 1,
         background: {
           default: isDarkMode ? '#242526' : '#FFFFFF',
         },
@@ -69,6 +42,7 @@ const App = ({ container }) => {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
+        <Alan />
         <div className={classes.root}>
           <CssBaseline />
           <AppBar position="fixed" className={classes.appBar}>
@@ -80,7 +54,7 @@ const App = ({ container }) => {
               <Search />
               <FaSun />
 
-              <MuiSwitch size="small" color="default" checked={isDarkMode} onChange={() => setIsDarkMode(!isDarkMode)} />
+              <MuiSwitch size="small" color="default" checked={isDarkMode} onChange={() => dispatch(toggleMode())} />
               <BsMoon />
             </Toolbar>
           </AppBar>
