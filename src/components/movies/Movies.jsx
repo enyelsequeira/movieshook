@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-// import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import RingLoader from 'react-spinners/RingLoader';
 import { useSelector, useDispatch } from 'react-redux';
@@ -19,7 +18,6 @@ const Movies = () => {
   const isLoading = useSelector((state) => state.config.isLoading);
   const currentlySelected = useSelector((state) => state.currentlySelected);
   const theme = useTheme();
-  // console.log(data);
 
   useEffect(() => {
     if (typeof currentlySelected === 'number') {
