@@ -2,20 +2,16 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Divider, List, ListItem, ListItemText, ListSubheader } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import { AiTwotoneEye, AiFillNotification, AiTwotoneLike } from 'react-icons/ai';
-import { MdFavorite } from 'react-icons/md';
-import { BsGraphUp } from 'react-icons/bs';
 import { useTheme } from '@material-ui/core/styles';
 import { selectGenre, selectCategory, getGenres } from '../../actions';
-import styles from './Sidebar.module.scss';
 import Img from '../../Img/cinemas.svg';
 import ImgNight from '../../Img/nightmode.svg';
 import useStyles from './styles';
 
 const categories = [
-  { label: 'Popular', value: 'popular', icon: <AiTwotoneLike /> },
-  { label: 'Top Rated', value: 'top_rated', icon: <BsGraphUp /> },
-  { label: 'Upcoming', value: 'upcoming', icon: <AiFillNotification /> },
+  { label: 'Popular', value: 'popular' },
+  { label: 'Top Rated', value: 'top_rated' },
+  { label: 'Upcoming', value: 'upcoming' },
 ];
 
 const Sidebar = () => {
@@ -38,7 +34,7 @@ const Sidebar = () => {
       <Divider />
       <List>
         <ListSubheader>Categories</ListSubheader>
-        {categories.map(({ label, value, icon }, i) => (
+        {categories.map(({ label, value }, i) => (
           <Link key={value} className={classes.links} to="/">
             <ListItem onClick={() => dispatch(selectCategory(value, 1))} button key={i}>
               <ListItemText>  {label} </ListItemText>

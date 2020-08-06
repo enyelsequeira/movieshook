@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { AppBar, CssBaseline, IconButton, Drawer, Hidden, Toolbar, Switch as MuiSwitch } from '@material-ui/core';
 // import { useTheme } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -21,9 +21,7 @@ const App = ({ container }) => {
   const { isDarkMode } = useSelector((state) => state.config);
   const dispatch = useDispatch();
 
-  console.log(isDarkMode);
-
-  // const [page, setPage] = useState(1);
+  // console.log(isDarkMode);
 
   const classes = useStyles();
 

@@ -19,10 +19,7 @@ const Movies = () => {
   const isLoading = useSelector((state) => state.config.isLoading);
   const currentlySelected = useSelector((state) => state.currentlySelected);
   const theme = useTheme();
-  // const movie = useSelector((state) => state.movie);
   // console.log(data);
-
-  console.log(data);
 
   useEffect(() => {
     if (typeof currentlySelected === 'number') {

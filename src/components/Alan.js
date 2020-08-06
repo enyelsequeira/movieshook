@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import alanBtn from '@alan-ai/alan-sdk-web';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
